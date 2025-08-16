@@ -1,103 +1,113 @@
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
+import { CiDesktopMouse2 } from "react-icons/ci";
+import { HiArrowLongDown } from "react-icons/hi2";
+import { FaArrowRightLong } from "react-icons/fa6";
+import Footer from "@/components/footer";
+import Link from "next/link";
+
+
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      {/* Landing page */}
+      <div>
+        <div className=" bg-[url(/bg.png)] bg-no-repeat bg-cover lg:bg-position-[center_top] bg-center h-[100vh] w-full absolute top-0 -z-10 left-0"></div>
+        <div className="h-[85vh] w-full flex flex-col items-center justify-center gap-8">
+          <div className="text-4xl font-bold lg:text-5xl text-center">
+            Practice Web App <span className="text-[var(--extra-light-button)]">Hacking</span>  in a Safe Lab Environment
+          </div>
+          <div className="text-lg lg:text-2xl text-center">
+            Learn, hack, and master vulnerabilities like <span className="text-[var(--extra-light-button)]">SQLi, XSS, CSRF, and more.</span>
+          </div>
+          <div className="flex flex-col gap-5 items-center">
+            <div className="bg-white/5 p-3 border border-gray-600 rounded-full">
+              <CiDesktopMouse2 className="text-white size-6 text-center" />
+            </div>
+            <HiArrowLongDown className="text-white size-6 animate-bounce" />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      {/* about section */}
+      <div className="w-full h-auto pt-5 lg:pt-15">
+        <div className="text-3xl lg:text-4xl font-bold text-center">Why Use <span className="text-[var(--button-color)]">BugLab</span> ?</div>
+        <div className="flex mt-10 flex-col gap-10 items-center lg:flex-row lg:flex-wrap lg:justify-center">
+          <div className="flex flex-col w-[70vw] lg:w-[20vw] bg-white/5 border border-gray-800 p-5 gap-5 items-center text-center rounded-2xl">
+            <div><img src="/shield-svgrepo-com.png" className="size-30" alt="" /></div>
+            <div className="text-2xl font-bold"> Safe & Legal Labs</div>
+            <div className="text-lg font-medium">Practice real vulnerabilities without any legal risks.</div>
+          </div>
+          <div className="flex flex-col w-[70vw] lg:w-[20vw] bg-white/5 border border-gray-800 p-5 gap-5 items-center text-center rounded-2xl">
+            <div><img src="/brain.png" className="size-30" alt="" /></div>
+            <div className="text-2xl font-bold">Beginners Friendly</div>
+            <div className="text-lg font-medium">Step-by-step challenges with hints and solutions.</div>
+          </div>
+          <div className="flex flex-col w-[70vw] lg:w-[20vw] bg-white/5 border border-gray-800 p-5 gap-5 items-center text-center rounded-2xl">
+            <div><img src="/sword.png" className="size-28" alt="" /></div>
+            <div className="text-2xl font-bold"> Leaderboard & Points</div>
+            <div className="text-lg font-medium">Compete with other users and track your progress.</div>
+          </div>
+          <div className="flex flex-col w-[70vw] lg:w-[20vw] bg-white/5 border border-gray-800 p-5 gap-5 items-center text-center rounded-2xl">
+            <div><img src="/hacker.png" className="size-28" alt="" /></div>
+            <div className="text-2xl font-bold"> Admin-Added Challenges</div>
+            <div className="text-lg font-medium">Continuously updated with new and diverse scenarios.</div>
+          </div>
+        </div>
+      </div>
+      {/* labs */}
+      <div>
+        <div className="text-3xl lg:text-4xl mt-10 font-bold text-center">Explore Vulnerability Labs</div>
+        <ul className="mt-10 text-xl font-medium pl-20 gap-10 flex flex-col items-start">
+          <li className="group hover:underline cursor-pointer hover:text-[var(--button-color)] flex items-center gap-3 transition-all delay-75 duration-200 ease-in-out">SQL Injection <FaArrowRightLong className="transition-all delay-75 duration-200 ease-in-out group-hover:translate-x-5" /></li>
+          <li className="group hover:underline cursor-pointer hover:text-[var(--button-color)] flex items-center gap-3 transition-all delay-75 duration-200 ease-in-out">XSS <FaArrowRightLong className="transition-all delay-75 duration-200 ease-in-out group-hover:translate-x-5" /></li>
+          <li className="group hover:underline cursor-pointer hover:text-[var(--button-color)] flex items-center gap-3 transition-all delay-75 duration-200 ease-in-out">CSRF <FaArrowRightLong className="transition-all delay-75 duration-200 ease-in-out group-hover:translate-x-5" /></li>
+          <li className="group hover:underline cursor-pointer hover:text-[var(--button-color)] flex items-center gap-3 transition-all delay-75 duration-200 ease-in-out">No SQL Injection <FaArrowRightLong className="transition-all delay-75 duration-200 ease-in-out group-hover:translate-x-5" /></li>
+          <Link href={"/Labs"}><li className="group hover:underline cursor-pointer hover:text-[var(--button-color)] flex items-center gap-3 transition-all delay-75 duration-200 ease-in-out">All labs ... <FaArrowRightLong className="transition-all delay-75 duration-200 ease-in-out group-hover:translate-x-5" /></li></Link>
+        </ul>
+      </div>
+      {/* leaderboard preview */}
+      <div className="mt-15 flex flex-col items-center">
+        <div className="text-3xl lg:text-4xl font-bold text-center">Top Hackers this week</div>
+        <table className="mt-10 w-[80vw]">
+          <thead>
+            <tr className="border border-t-0 border-l-0 border-r-0 border-gray-700 lg:text-2xl">
+              <th scope="col" className="px-6 py-1">Rank</th>
+              <th scope="col" className="px-20 py-1">Username</th>
+              <th scope="col" className="px-10 py-1">Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border border-t-0 border-l-0 border-r-0 border-gray-800 lg:text-xl">
+              <td className="px-6 py-3 text-center">1🥇</td>
+              <td className="px-20 text-center">ajith_aju</td>
+              <td className="px-10 text-center">3000</td>
+            </tr>
+            <tr className="border border-t-0 border-l-0 border-r-0 border-gray-800 lg:text-xl">
+              <td className="px-6 py-3 text-center">2🥈</td>
+              <td className="px-20 text-center">nullbyte_23</td>
+              <td className="px-10 text-center">2900</td>
+            </tr>
+            <tr className="border border-t-0 border-l-0 border-r-0 border-gray-800 lg:text-xl">
+              <td className="px-6 py-3 text-center">3🥉</td>
+              <td className="px-20 text-center">cyberwolf</td>
+              <td className="px-10 text-center">2700</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <Link href={"/Leaderboard"}><div className="group flex w-fit items-center gap-3 pl-10 lg:pl-35 mt-5 hover:text-[var(--button-color)] cursor-pointer lg:text-xl hover:underline transition-hover delay-100 duration-200 ">More...<FaArrowRightLong className="transition-all delay-100 duration-200 group-hover:translate-x-5 ease-in-out" /></div></Link>
+      {/* How to use */}
+      <div>
+        <div className="text-3xl text-center font-bold mt-10 lg:text-4xl">Start in 3 Easy Steps</div>
+        <div className="pl-10 mt-10 text-xl font-bold lg:text-3xl">Steps:</div>
+        <div className="pl-10 mt-5 flex flex-col gap-6 text-lg lg:text-2xl">
+          <div>1. <span className="font-bold">Sign Up</span> – Create your free account.</div>
+          <div>2. <span className="font-bold">Choose a Challenge</span> – Pick a lab based on difficulty.</div>
+          <div>3. <span className="font-bold">Start Hacking</span> – Use your skills to complete it and earn points.</div>
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 }
