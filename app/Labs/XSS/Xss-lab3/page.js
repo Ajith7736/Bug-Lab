@@ -68,7 +68,7 @@ function page() {
             {alerttriggered && <>
                 <div className='text-xl font-bold -top-20 p-4 absolute w-full shadow-2xl bg-gray-900 success-message flex justify-between items-center'>Successfully completed this lab <Link href={"/Labs"} className='bg-white/5 p-2 rounded-lg border border-gray-600'>Go back</Link></div>
             </>}
-            <div className='bg-white z-10 text-black font-semibold h-auto p-5 text-xl'>This web page contains a <span className='text-red-500'>XSS</span> vulnarability in the <span className='text-red-500'>Post Comment</span> field.So exploit this vulnerability to show an <span className='text-red-500'>Alert box</span> in the page.
+            <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl'>This web page contains a <span className='text-red-500'>XSS</span> vulnarability in the <span className='text-red-500'>Post Comment</span> field.So exploit this vulnerability to show an <span className='text-red-500'>Alert box</span> in the page.
                 <div>⚠️ This is a deliberately vulnerable application built for educational purposes only.</div>
             </div>
             <div className='p-5 flex flex-col lg:items-center'>

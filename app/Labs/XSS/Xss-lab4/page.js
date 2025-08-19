@@ -33,7 +33,7 @@ function page() {
             {alerttriggered && <>
                 <Success />
             </>}
-             <div className='bg-white z-10 text-black font-semibold h-auto p-5 text-xl'>This web page contains a <span className='text-red-500'>XSS</span> vulnarability in the <span className='text-red-500'>Input</span> field.So exploit this vulnerability to show an <span className='text-red-500'>Alert box</span> in the page.
+             <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl'>This web page contains a <span className='text-red-500'>XSS</span> vulnarability in the <span className='text-red-500'>Input</span> field.So exploit this vulnerability to show an <span className='text-red-500'>Alert box</span> in the page.
                 <div>⚠️ This is a deliberately vulnerable application built for educational purposes only.</div>
             </div>
             <div className='p-5 flex flex-col gap-5 lg:items-center'>

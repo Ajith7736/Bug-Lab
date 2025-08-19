@@ -10,10 +10,14 @@ function page() {
     const router = useRouter()
     const [success, setsuccess] = useState(false)
     const category = searchparams.get("category")
+    const [error, seterror] = useState(null)
 
 
     useEffect(() => {
         getproducts()
+        if (category?.includes("ORDER BY 5 --") || category?.includes("UNION SELECT NULL,NULL,NULL,NULL,NULL --")) {
+            setsuccess(true)
+        }
     }, [category])
 
     const getproducts = async () => {
@@ -31,29 +35,27 @@ function page() {
         if (res.status === 200) {
             setproducts(data.products)
         }
+        if (res.status === 500) {
+            seterror(data.message)
+        }
     }
 
 
     const setcategory = async (cat) => {
         if (cat == "All") {
-            router.push("/Labs/SQL-lab2")
+            router.push("/Labs/SQL/SQL-lab3")
         } else {
-            router.push(`/Labs/SQL-lab2?category=${cat}`)
+            router.push(`/Labs/SQL/SQL-lab3?category=${cat}`)
         }
     }
-
-    useEffect(() => {
-        products?.find((item) => {
-            if (item.hidden === 1) {
-                return setsuccess(true)
-            }
-        })
-    }, [products])
 
 
     return (
         <>
             {success && <><div><Success /></div></>}
+            <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl'>To solve the lab, determine the number of columns returned by the query by performing a SQL injection <span className="text-red-500">ORDER BY</span> or <span className='text-red-500'>UNION ATTACK</span> attack.
+                <div>⚠️ This is a deliberately vulnerable application built for educational purposes only.</div>
+            </div>
             <div className='p-5 flex flex-col gap-6'>
                 <div className='text-center text-2xl font-bold'>Products</div>
                 <div className='w-full h-[5vh] bg-white/5 rounded-xl flex items-center px-3 gap-5'>
@@ -63,7 +65,7 @@ function page() {
                     <div className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600' id="Clothing" onClick={(e) => { setcategory(e.target.id) }}>Clothing</div>
                     <div className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600' id="Furniture" onClick={(e) => { setcategory(e.target.id) }}>Furniture</div>
                 </div>
-                {category && <><div className='text-center text-2xl font-bold'>Categories of {category}</div></>}
+                {error ? <><div className='text-red-500 text-xl'>{error}</div></> : category && <><div className='text-center text-2xl font-bold'>Categories of {category}</div></>}
                 <div className='flex flex-col gap-5'>
                     {products?.map((item, index) => {
                         return <div key={index} className='flex flex-col gap-2'>
@@ -75,6 +77,7 @@ function page() {
                     })}
 
                 </div>
+
             </div>
         </>
 

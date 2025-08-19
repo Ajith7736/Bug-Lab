@@ -37,7 +37,7 @@ function page() {
             {success && <>
                 <Success />
             </>}
-            <div className='bg-white z-10 text-black font-semibold h-auto p-5 text-xl'>This lab contains a SQL injection vulnerability in the login function.
+            <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl'>This lab contains a SQL injection vulnerability in the login function.
                 To solve the lab, perform a SQL injection attack that logs in to the application as the <span className='text-red-500'>administrator</span> user.
                 <div>⚠️ This is a deliberately vulnerable application built for educational purposes only.</div>
             </div>
