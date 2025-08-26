@@ -13,8 +13,14 @@ const Userschema = new Schema({
     Profilepic: {
         type: String,
         required: true
+    },
+    Username: {
+        type: String,
+        required: true
     }
 })
 
 
-export default mongoose.models.User || model("User", Userschema);
+const User = mongoose.models.User || model("User", Userschema);
+
+export default User;

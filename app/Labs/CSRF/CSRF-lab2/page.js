@@ -2,17 +2,51 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
+import Success from '@/components/Success';
 
 function page() {
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const [user, setuser] = useState(null)
     const [errormessage, seterrormessage] = useState("")
+    const [password, setpassword] = useState(null)
     const router = useRouter()
+    const [success, setsuccess] = useState(false)
+
+    useEffect(() => {
+        getpassword()
+    }, [])
+
+    useEffect(() => {
+        if (password === 'hacked@123') {
+            setsuccess(true)
+        }
+    }, [password])
+
+
 
     const handlesubmit = async (data) => {
-        await getuser(data)
+        if (data.Username !== "weiner") {
+            await getuser(data)
+        } else {
+            seterrormessage("Invalid Username or Password")
+        }
+
         reset()
+    }
+
+    const getpassword = async () => {
+        let res = await fetch("/api/lab-user/getuser", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ Username: "john" })
+        })
+        let data = await res.json()
+        if (res.status === 200) {
+            setpassword(data.Password)
+        }
     }
 
 
@@ -35,18 +69,35 @@ function page() {
 
     useEffect(() => {
         if (user) {
-            console.log(user.Username)
-            // router.push("/Labs/CSRF/CSRF-lab1/Update")
+            localStorage.setItem("user", JSON.stringify({ id: user.id, Username: user.Username, Email: user.Email }))
+            router.push("/Labs/CSRF/CSRF-lab2/Update")
         }
     }, [user])
 
+    
+    const reupdateuser = async () => {
+        let res = await fetch("http://localhost:3000/api/lab-user/updatepassword",{
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({currentpassword : "whatever",newpassword : "hacked@123"}),
+        credentials : "include"
+      })
+      let data = await res.json()
+      console.log(data)
+    }
 
     return (
         <>
-            <div className='bg-white/5 z-10 border border-l-0 border-r-0 border-gray-800 text-white font-semibold h-auto p-5 text-xl'>This lab contains a CSRF vulnerability in the profile update functionality.
+            {success && <>
+                <Success updateuser="true"/>
+            </>}
+            <div className='bg-white/5 z-10 border border-l-0 border-r-0 border-gray-800 text-white font-semibold h-auto p-5 text-xl'>This lab contains a CSRF vulnerability in the Update password functionality.
                 To solve the lab, First you need to login as user <br />
-                <span className="text-red-500">Username</span> : weiner <br />
-                <span className="text-red-500">Password</span> : peter <br />
+                <span className="text-red-500">Username</span> : john <br />
+                <span className="text-red-500">Password</span> : {password} <br />
+                 trick the user to visit <span className='bg-gray-200 text-lg p-2 text-black'>/Labs/CSRF/CSRF-lab2/Evil</span> endpoint.
                 <div>⚠️ This is a deliberately vulnerable application built for educational purposes only.</div>
             </div>
             <div className='p-5 flex flex-col lg:items-center'>

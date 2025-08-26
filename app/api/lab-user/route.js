@@ -9,7 +9,7 @@ export async function POST(request) {
         const user = await Dummydata.findOne({ Username, Password });
 
         if (user) {
-            return NextResponse.json({ success: true, user: { Email: user.Email, Username: user.Username } }, { status: 200 })
+            return NextResponse.json({ success: true, user: { Email: user.Email, Username: user.Username , id : user._id} }, { status: 200 })
         } else {
             return NextResponse.json({ success: false }, { status: 400 })
         }

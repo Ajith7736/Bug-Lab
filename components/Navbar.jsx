@@ -30,12 +30,12 @@ function Navbar() {
     return (
         <>
             <div className='hidden md:flex justify-between bg-white/5 backdrop-blur-sm rounded-full py-5 px-10 items-center h-[10vh] m-5'>
-                <Link href={"/"}><div className='font-bold text-lg lg:text-3xl'>Buglab</div></Link>
+                <Link href={"/"}><div className='font-bold text-lg lg:text-3xl poppins-extrabold'>Buglab</div></Link>
                 <div>
                     <ul className='flex gap-10 font-medium lg:text-lg '>
-                        <Link href={"/"} className={pathname === "/" ? "text-white" : "text-gray-500"}><li className='cursor-pointer'>Home</li></Link>
-                        <Link href={"/Labs"} className={pathname === "/Labs" ? "text-white" : "text-gray-500"}><li className='cursor-pointer'>Labs</li></Link>
-                        <Link href={"/Leaderboard"} className={pathname === "/Leaderboard" ? "text-white" : "text-gray-500"}><li className='cursor-pointer'>Leaderboard</li></Link>
+                        <Link href={"/"} className={pathname === "/" ? "text-white" : "text-gray-500"}><li className='cursor-pointer poppins-extrabold'>Home</li></Link>
+                        <Link href={"/Labs"} className={pathname === "/Labs" ? "text-white" : "text-gray-500"}><li className='cursor-pointer poppins-extrabold'>Labs</li></Link>
+                        <Link href={"/Leaderboard"} className={pathname === "/Leaderboard" ? "text-white" : "text-gray-500"}><li className='cursor-pointer poppins-extrabold'>Leaderboard</li></Link>
                     </ul>
                 </div>
                 <div className=''>
@@ -45,7 +45,7 @@ function Navbar() {
             {/* mobile nav */}
             <div className='flex md:hidden justify-between bg-white/5 backdrop-blur-sm rounded-full py-5 px-10 items-center h-[10vh] m-5'>
                 <GiHamburgerMenu className='size-6 cursor-pointer' onClick={handlehandburger} />
-                <Link href={"/"}><div className='font-bold text-2xl lg:text-3xl'>Buglab</div></Link>
+                <Link href={"/"}><div className='font-bold text-2xl lg:text-3xl poppins-extrabold'>Buglab</div></Link>
                 <div className='hidden'>
                     <ul className='flex gap-10 font-medium lg:text-lg '>
                         <Link href={"/"} className={pathname === "/" ? "text-white" : "text-gray-500"}><li className='cursor-pointer'>Home</li></Link>
@@ -54,7 +54,7 @@ function Navbar() {
                     </ul>
                 </div>
                 <div className=''>
-                    {session ? <div className='flex gap-5 items-center'><img src={session.user.image} className='w-11 h-11 rounded-full' alt="" /><button className='bg-[var(--button-color)] px-6 py-3 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90' onClick={() => signOut()}>Logout</button></div> : <Link href={"/Login"}><button className='bg-[var(--button-color)] px-6 py-3 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90'>Login</button></Link>}
+                    {session ? <div className='flex gap-5 items-center'><img src={session.user.image} className='w-11 h-11 rounded-full' alt="" /><button className='bg-[var(--button-color)] px-6 py-3 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90 poppins-semibold' onClick={() => signOut()}>Logout</button></div> : <Link href={"/Login"}><button className='bg-[var(--button-color)] px-6 py-3 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90'>Login</button></Link>}
                 </div>
             </div>
             {/* sidebar */}
@@ -62,9 +62,9 @@ function Navbar() {
                 <div className='flex justify-end'>
                     <IoMdClose className='size-6 cursor-pointer' onClick={handleclose} />
                 </div>
-                <Link href={"/"} className={pathname === "/" ? "text-white" : "text-gray-500"}><div className='text-xl font-bold bg-gray-900 p-4 rounded-xl' onClick={handleclose}> Home </div></Link>
-                <Link href={"/Leaderboard"} className={pathname === "/Leaderboard" ? "text-white" : "text-gray-500"}><div className='text-xl font-bold bg-gray-900 p-4 rounded-xl' onClick={handleclose}>Leaderboard </div></Link>
-                <Link href={"/Labs"} className={pathname === "/Labs" ? "text-white" : "text-gray-500"}><div className='text-xl font-bold bg-gray-900 p-4 rounded-xl' onClick={handleclose}>Labs </div></Link>
+                <Link href={"/"} className={pathname === "/" ? "text-black bg-white rounded-lg" : "text-white"}><div className='text-xl  p-4 rounded-xl poppins-extrabold' onClick={handleclose}> Home </div></Link>
+                <Link href={"/Leaderboard"} className={pathname === "/Leaderboard" ? "text-black bg-white rounded-lg" : "text-white"}><div className='text-xl poppins-extrabold  p-4 rounded-xl' onClick={handleclose}>Leaderboard </div></Link>
+                <Link href={"/Labs"} className={pathname === "/Labs" ? "text-black bg-white rounded-lg" : "text-white"}><div className='text-xl poppins-extrabold  p-4 rounded-xl' onClick={handleclose}>Labs </div></Link>
             </div >
         </>
     )
