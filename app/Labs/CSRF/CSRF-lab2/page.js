@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import Success from '@/components/Success';
+import { useSession } from 'next-auth/react';
 
 function page() {
 
@@ -12,6 +13,7 @@ function page() {
     const [password, setpassword] = useState(null)
     const router = useRouter()
     const [success, setsuccess] = useState(false)
+    const { data: session } = useSession()
 
     useEffect(() => {
         getpassword()
@@ -74,30 +76,46 @@ function page() {
         }
     }, [user])
 
-    
+
     const reupdateuser = async () => {
-        let res = await fetch("http://localhost:3000/api/lab-user/updatepassword",{
-        method : "POST",
-        headers : {
-            "Content-Type" : "application/json"
-        },
-        body : JSON.stringify({currentpassword : "whatever",newpassword : "hacked@123"}),
-        credentials : "include"
-      })
-      let data = await res.json()
-      console.log(data)
+        let res = await fetch("http://localhost:3000/api/lab-user/updatepassword", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ currentpassword: "whatever", newpassword: "hacked@123" }),
+            credentials: "include"
+        })
+        let data = await res.json()
+        console.log(data)
+    }
+
+    useEffect(() => {
+        if (success) {
+            solvedlab()
+        }
+    }, [success])
+
+    const solvedlab = async () => {
+        await fetch("/api/updateprogress", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userId: session?.user.id, labId: "CSRF-lab2" })
+        })
     }
 
     return (
         <>
             {success && <>
-                <Success updateuser="true"/>
+                <Success updateuser="true" />
             </>}
             <div className='bg-white/5 z-10 border border-l-0 border-r-0 border-gray-800 text-white font-semibold h-auto p-5 text-xl'>This lab contains a CSRF vulnerability in the Update password functionality.
                 To solve the lab, First you need to login as user <br />
                 <span className="text-red-500">Username</span> : john <br />
                 <span className="text-red-500">Password</span> : {password} <br />
-                 trick the user to visit <span className='bg-gray-200 text-lg p-2 text-black'>/Labs/CSRF/CSRF-lab2/Evil</span> endpoint.
+                trick the user to visit <span className='bg-gray-200 text-lg p-2 text-black'>/Labs/CSRF/CSRF-lab2/Evil</span> endpoint.
                 <div>⚠️ This is a deliberately vulnerable application built for educational purposes only.</div>
             </div>
             <div className='p-5 flex flex-col lg:items-center'>

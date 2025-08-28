@@ -16,7 +16,11 @@ const Userschema = new Schema({
     },
     Username: {
         type: String,
-        required: true
+        required: false
+    },
+    Score: {
+        type: Number,
+        default: 0
     }
 })
 

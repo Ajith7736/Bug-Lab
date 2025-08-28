@@ -4,12 +4,14 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Success from '@/components/Success'
+import { useSession } from 'next-auth/react'
 
 function page() {
   const [alerttriggered, setalerttriggered] = useState(false)
   const router = useRouter();
   const [name, setname] = useState("")
   const [submittedname, setsubmittedname] = useState("")
+  const { data: session } = useSession()
 
   useEffect(() => {
     const originalalert = window.alert;
@@ -29,6 +31,22 @@ function page() {
 
   const handlesubmit = () => {
     setsubmittedname(name)
+  }
+
+  useEffect(() => {
+    if (alerttriggered) {
+      solvedlab()
+    }
+  }, [alerttriggered])
+
+  const solvedlab = async () => {
+   await fetch("/api/updateprogress", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ userId: session?.user.id, labId: "XSS-lab1" })
+    })
   }
 
 

@@ -1,10 +1,12 @@
 "use client"
 import Success from '@/components/Success'
+import { useSession } from 'next-auth/react'
 import React, { useEffect, useState } from 'react'
 
 function page() {
     const [inputvalue, setinputvalue] = useState(null)
     const [alerttriggered, setalerttriggered] = useState(false)
+    const { data: session } = useSession()
 
 
 
@@ -27,13 +29,29 @@ function page() {
         }
     }, [])
 
+    useEffect(() => {
+        if (alerttriggered) {
+            solvedlab()
+        }
+    }, [alerttriggered])
+
+    const solvedlab = async () => {
+        await fetch("/api/updateprogress", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userId: session?.user.id, labId: "XSS-lab4" })
+        })
+    }
+
 
     return (
         <div>
             {alerttriggered && <>
                 <Success />
             </>}
-             <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl'>This web page contains a <span className='text-red-500'>XSS</span> vulnarability in the <span className='text-red-500'>Input</span> field.So exploit this vulnerability to show an <span className='text-red-500'>Alert box</span> in the page.
+            <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl'>This web page contains a <span className='text-red-500'>XSS</span> vulnarability in the <span className='text-red-500'>Input</span> field.So exploit this vulnerability to show an <span className='text-red-500'>Alert box</span> in the page.
                 <div>⚠️ This is a deliberately vulnerable application built for educational purposes only.</div>
             </div>
             <div className='p-5 flex flex-col gap-5 lg:items-center'>

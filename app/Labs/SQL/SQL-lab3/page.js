@@ -1,5 +1,6 @@
 'use client'
 import Success from '@/components/Success'
+import { useSession } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -11,6 +12,7 @@ function page() {
     const [success, setsuccess] = useState(false)
     const category = searchparams.get("category")
     const [error, seterror] = useState(null)
+    const { data: session } = useSession()
 
 
     useEffect(() => {
@@ -47,6 +49,22 @@ function page() {
         } else {
             router.push(`/Labs/SQL/SQL-lab3?category=${cat}`)
         }
+    }
+
+    useEffect(() => {
+        if (success) {
+            solvedlab()
+        }
+    }, [success])
+
+    const solvedlab = async () => {
+        await fetch("/api/updateprogress", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userId: session?.user.id, labId: "SQL-lab3" })
+        })
     }
 
 

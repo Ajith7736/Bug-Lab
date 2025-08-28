@@ -1,15 +1,15 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 function page() {
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const [comments, setcomments] = useState(null)
-    const router = useRouter();
     const [alerttriggered, setalerttriggered] = useState(false)
+    const { data: session } = useSession()
 
     const onSubmit = async (data) => {
         await submitcomment(data)
@@ -35,7 +35,7 @@ function page() {
 
 
     const submitcomment = async (data) => {
-        let res = await fetch("/api/comments", {
+       await fetch("/api/comments", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -62,6 +62,22 @@ function page() {
         return { required: { value: true, message: "This field is required" } }
     }
 
+    useEffect(() => {
+        if (alerttriggered) {
+            solvedlab()
+        }
+    }, [alerttriggered])
+
+    const solvedlab = async () => {
+        await fetch("/api/updateprogress", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userId: session?.user.id, labId: "XSS-lab3" })
+        })
+    }
+
 
     return (
         <>
@@ -74,16 +90,16 @@ function page() {
             <div className='p-5 flex flex-col lg:items-center'>
                 <form action="" className='flex flex-col gap-5' onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor='Name' className='text-lg'>First Name</label>
-                    <input type="text" {...register("Name",required())} id='Name' className='bg-white/5 lg:w-[40vw] p-2 rounded-md border border-gray-800 focus:outline-none' />
+                    <input type="text" {...register("Name", required())} id='Name' className='bg-white/5 lg:w-[40vw] p-2 rounded-md border border-gray-800 focus:outline-none' />
                     {errors.Name && <><div className='text-red-500'>{errors.Name.message}</div></>}
                     <label htmlFor='Email' className='text-lg'>Your Email</label>
-                    <input type="Email" {...register("Email",required())} id='Email' className='bg-white/5 lg:w-[40vw] p-2 rounded-md border border-gray-800 focus:outline-none' />
+                    <input type="Email" {...register("Email", required())} id='Email' className='bg-white/5 lg:w-[40vw] p-2 rounded-md border border-gray-800 focus:outline-none' />
                     {errors.Email && <><div className='text-red-500'>{errors.Email.message}</div></>}
                     <label htmlFor='Website' className='text-lg'>Website</label>
-                    <input type="text" {...register("Website",required())} id='Website' className='bg-white/5 lg:w-[40vw] p-2 rounded-md border border-gray-800 focus:outline-none' />
+                    <input type="text" {...register("Website", required())} id='Website' className='bg-white/5 lg:w-[40vw] p-2 rounded-md border border-gray-800 focus:outline-none' />
                     {errors.Website && <><div className='text-red-500'>{errors.Website.message}</div></>}
                     <label htmlFor='Message' className='text-lg'>Message</label>
-                    <textarea name="" {...register("Message",required())} id="Message" className='bg-white/5 lg:w-[40vw] p-2 rounded-md border border-gray-800 focus:outline-none h-[20vh]'></textarea>
+                    <textarea name="" {...register("Message", required())} id="Message" className='bg-white/5 lg:w-[40vw] p-2 rounded-md border border-gray-800 focus:outline-none h-[20vh]'></textarea>
                     {errors.Message && <><div className='text-red-500'>{errors.Message.message}</div></>}
                     <input type="submit" value="Post Comment" id="" className='bg-[var(--button-color)] lg:w-[40vw] p-2 rounded-md font-bold cursor-pointer' />
                     <input type="reset" className='border border-red-500 lg:w-[40vw] rounded-md cursor-pointer p-2' />

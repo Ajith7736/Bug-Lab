@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Success from '@/components/Success'
+import { useSession } from 'next-auth/react'
 
 function page() {
 
@@ -10,6 +11,7 @@ function page() {
   const [Email, setEmail] = useState("")
   const inputref = useRef()
   const [success, setsuccess] = useState(false)
+  const { data: session } = useSession()
 
 
 
@@ -65,6 +67,22 @@ function page() {
     updateEmail(inputref.current.value)
     inputref.current.value = ""
   }
+
+  useEffect(() => {
+        if (success) {
+            solvedlab()
+        }
+    }, [success])
+
+    const solvedlab = async () => {
+        await fetch("/api/updateprogress", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userId: session?.user.id, labId: "CSRF-lab1" })
+        })
+    }
 
   return (
     <>

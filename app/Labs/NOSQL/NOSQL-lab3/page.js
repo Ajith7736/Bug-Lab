@@ -1,17 +1,19 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Success from '@/components/Success';
+import { useSession } from 'next-auth/react';
 
 function page() {
   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
   const [message, setmessage] = useState("")
   const [success, setsuccess] = useState(false)
+  const { data: session } = useSession()
 
 
   const handlesubmit = async (data) => {
     await getuser(data)
-    if(data.Username === "administrator" && data.Password === "admin39502"){
+    if (data.Username === "administrator" && data.Password === "admin39502") {
       setsuccess(true)
     }
     reset()
@@ -33,6 +35,22 @@ function page() {
       setmessage(resdata.message)
     }
   }
+
+  useEffect(() => {
+        if (success) {
+            solvedlab()
+        }
+    }, [success])
+
+    const solvedlab = async () => {
+        await fetch("/api/updateprogress", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userId: session?.user.id, labId: "NOSQL-lab3" })
+        })
+    }
 
   return (
     <>

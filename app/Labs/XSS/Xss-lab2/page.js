@@ -1,11 +1,12 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Success from '@/components/Success'
-import Link from 'next/link'
+import { useSession } from 'next-auth/react'
 
 
 function page() {
     const [alerttriggered, setalerttriggered] = useState(false)
+    const { data : session } = useSession()
 
     useEffect(() => {
         const originalalert = window.alert;
@@ -33,11 +34,27 @@ function page() {
         })
     }
 
+    useEffect(() => {
+        if (alerttriggered) {
+            solvedlab()
+        }
+    }, [alerttriggered])
+
+    const solvedlab = async () => {
+        await fetch("/api/updateprogress", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userId: session?.user.id, labId: "XSS-lab2" })
+        })
+    }
+
 
     return (
         <div>
             {alerttriggered && <>
-                <Success/>
+                <Success />
             </>}
             <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl'>This web page contains a <span className='text-red-500'>xss</span> vulnarability in the input field.So exploit this vulnerability to show an <span className='text-red-500'>alert box</span> in the page.
                 <div>⚠️ This is a deliberately vulnerable application built for educational purposes only.</div>

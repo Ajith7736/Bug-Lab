@@ -1,5 +1,6 @@
 'use client'
 import Success from '@/components/Success'
+import { useSession } from 'next-auth/react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -10,22 +11,23 @@ function page() {
   const router = useRouter()
   const [success, setsuccess] = useState(false)
   const [category, setcategory] = useState(null)
+  const { data: session } = useSession()
 
 
   useEffect(() => {
-     if (category !== "internal") {
+    if (category !== "internal") {
       getproducts()
-     }
+    }
   }, [category])
 
   useEffect(() => {
-    products?.find((item)=>{
-      if(item.Category === "internal"){
+    products?.find((item) => {
+      if (item.Category === "internal") {
         setsuccess(true)
       }
     })
   }, [products])
-  
+
 
   const getproducts = async () => {
     let res = await fetch("/api/nosqlroutes/getproducts", {
@@ -33,13 +35,29 @@ function page() {
       headers: {
         "Content-Type": "application/json"
       },
-      body : JSON.stringify({Category : category})
+      body: JSON.stringify({ Category: category })
     });
     let data = await res.json();
     if (res.status === 200) {
       setproducts(data.products)
     }
   }
+
+  useEffect(() => {
+        if (success) {
+            solvedlab()
+        }
+    }, [success])
+
+    const solvedlab = async () => {
+        await fetch("/api/updateprogress", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userId: session?.user.id, labId: "NOSQL-lab2" })
+        })
+    }
 
 
 
