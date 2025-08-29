@@ -45,7 +45,7 @@ const handler = NextAuth({
                             Email: user.email,
                             Name: user.name,
                             Profilepic: user.image,
-                            Username: user.email.split("@")[0]
+                            Username: null
                         })
                         let Labs = await Lab.find({}, "labId");
                         const Progresslabs = Labs.map((item) => {
@@ -65,7 +65,7 @@ const handler = NextAuth({
                             Email: user.email,
                             Name: user.name,
                             Profilepic: user.image,
-                            Username: user.email.split("@")[0]
+                            Username: null
                         })
                         let Labs = await Lab.find({}, "labId");
                         const Progresslabs = Labs.map((item) => {
@@ -86,7 +86,7 @@ const handler = NextAuth({
                             Email: user.email,
                             Name: user.name,
                             Profilepic: user.image,
-                            Username: user.email.split("@")[0]
+                            Username: null
                         })
                         let Labs = await Lab.find({}, "labId");
                         const Progresslabs = Labs.map((item) => {
