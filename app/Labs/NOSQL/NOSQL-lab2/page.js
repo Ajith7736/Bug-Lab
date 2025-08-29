@@ -1,14 +1,11 @@
 'use client'
 import Success from '@/components/Success'
 import { useSession } from 'next-auth/react'
-import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 
 function Page() {
   const [products, setproducts] = useState(null)
-  const searchparams = useSearchParams()
-  const router = useRouter()
   const [success, setsuccess] = useState(false)
   const [category, setcategory] = useState(null)
   const { data: session } = useSession()
