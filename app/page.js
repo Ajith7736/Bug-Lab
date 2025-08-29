@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import { CiDesktopMouse2 } from "react-icons/ci";
 import { HiArrowLongDown } from "react-icons/hi2";
 import { FaArrowRightLong } from "react-icons/fa6";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import { useEffect } from "react";
 import "aos/dist/aos.css";
