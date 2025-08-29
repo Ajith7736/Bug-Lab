@@ -7,7 +7,7 @@ module.exports = {
         button: "var(--button-color)",
         "button-light": "var(--light-button-color)",
         "button-extra-light": "var(--extra-light-button)",
-      },
+      }
     },
   },
   content: [
