@@ -5,6 +5,11 @@
   overflow: hidden;
 }
 
+.section-wrapper {
+  overflow-x: hidden;
+}
+
+
 
 .poppins-thin {
   font-family: "Poppins", sans-serif;

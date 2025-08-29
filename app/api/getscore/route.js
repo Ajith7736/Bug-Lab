@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
     try{
         await connectdb();
-        const user = await User.find({},"Username Score")
+        const user = await User.find({},"Username Score").sort({ Score : -1 });
         return NextResponse.json(user,{status : 200})
     }catch(err){
         console.log(err)

@@ -24,14 +24,14 @@ function page() {
 
   return (
     <div className='px-5'>
-      <div className='text-3xl poppins-extrabold text-center'>Hall of fame</div>
+      <div className='text-3xl max-[450px]:text-xl poppins-extrabold text-center'>Leaderboard</div>
       <div className='flex flex-col lg:items-center mb-10'>
         {
           userdata?.map((item, index) => {
             return <div key={index} className='bg-white/5 mt-10 h-[8vh] lg:w-[60vw] rounded-full p-5 flex items-center border border-gray-800 justify-between'>
-              <div className='bg-white/10 h-10 w-10 rounded-full flex items-center justify-center border border-gray-700 font-bold'>{1+index}</div>
-              <div className='text-xl'>{item.Username}</div>
-              <div className='text-xl'>{item.Score}/270</div>
+              <div className='bg-white/10 h-10 w-10 rounded-full flex items-center justify-center border max-[450px]:text-sm border-gray-700 font-bold'>{1 + index}</div>
+              <div className='text-xl max-[450px]:text-sm'>{item.Username}</div>
+              <div className='text-xl max-[450px]:text-sm'>{item.Score}/270</div>
             </div>
           })
 

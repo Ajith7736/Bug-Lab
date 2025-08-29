@@ -14,6 +14,7 @@ function page() {
     const { data: session } = useSession()
 
 
+
     useEffect(() => {
         getproducts()
     }, [category])
@@ -53,10 +54,10 @@ function page() {
     }, [products])
 
     useEffect(() => {
-        if (success) {
+        if (success && session?.user?.id) {
             solvedlab()
         }
-    }, [success])
+    }, [success, session])
 
     const solvedlab = async () => {
         await fetch("/api/updateprogress", {

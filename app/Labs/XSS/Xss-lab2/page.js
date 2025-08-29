@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react'
 
 function page() {
     const [alerttriggered, setalerttriggered] = useState(false)
-    const { data : session } = useSession()
+    const { data: session } = useSession()
 
     useEffect(() => {
         const originalalert = window.alert;
@@ -35,10 +35,10 @@ function page() {
     }
 
     useEffect(() => {
-        if (alerttriggered) {
+        if (alerttriggered && session?.user?.id) {
             solvedlab()
         }
-    }, [alerttriggered])
+    }, [alerttriggered, session])
 
     const solvedlab = async () => {
         await fetch("/api/updateprogress", {

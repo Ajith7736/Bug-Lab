@@ -38,10 +38,10 @@ function page() {
     }
 
     useEffect(() => {
-        if (success) {
+        if (success && session?.user?.id) {
             solvedlab()
         }
-    }, [success])
+    }, [success, session])
 
     const solvedlab = async () => {
         await fetch("/api/updateprogress", {

@@ -35,7 +35,7 @@ function page() {
 
 
     const submitcomment = async (data) => {
-       await fetch("/api/comments", {
+        await fetch("/api/comments", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -63,10 +63,10 @@ function page() {
     }
 
     useEffect(() => {
-        if (alerttriggered) {
+        if (alerttriggered && session?.user?.id) {
             solvedlab()
         }
-    }, [alerttriggered])
+    }, [alerttriggered, session])
 
     const solvedlab = async () => {
         await fetch("/api/updateprogress", {

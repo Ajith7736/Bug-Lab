@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "better-sqlite3": "^12.2.0",
     "mongoose": "^8.17.1",
     "next": "15.4.5",

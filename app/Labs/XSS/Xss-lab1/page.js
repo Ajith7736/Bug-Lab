@@ -34,13 +34,13 @@ function page() {
   }
 
   useEffect(() => {
-    if (alerttriggered) {
+    if (alerttriggered && session?.user?.id) {
       solvedlab()
     }
-  }, [alerttriggered])
+  }, [alerttriggered, session])
 
   const solvedlab = async () => {
-   await fetch("/api/updateprogress", {
+    await fetch("/api/updateprogress", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
