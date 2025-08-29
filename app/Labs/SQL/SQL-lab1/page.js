@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import Success from '@/components/Success';
 import { useSession } from 'next-auth/react';
 
-function page() {
+function Page() {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const [message, setmessage] = useState("")
     const [success, setsuccess] = useState(false)
@@ -75,4 +75,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

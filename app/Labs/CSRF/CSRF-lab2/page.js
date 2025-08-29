@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Success from '@/components/Success';
 import { useSession } from 'next-auth/react';
 
-function page() {
+function Page() {
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const [user, setuser] = useState(null)
@@ -134,4 +134,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

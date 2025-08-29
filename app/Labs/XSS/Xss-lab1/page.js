@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Success from '@/components/Success'
 import { useSession } from 'next-auth/react'
 
-function page() {
+function Page() {
   const [alerttriggered, setalerttriggered] = useState(false)
   const router = useRouter();
   const [name, setname] = useState("")
@@ -71,4 +71,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

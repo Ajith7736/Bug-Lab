@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
-function page() {
+function Page() {
     const [user, setuser] = useState(null)
     const [successmessage, setsuccessmessage] = useState("")
     const [errormessage, seterrormessage] = useState(null)
@@ -61,4 +61,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

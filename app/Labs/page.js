@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import Lab from '@/components/Lab';
 import { useSession } from 'next-auth/react';
 
-function page() {
+function Page() {
   const [Labs, setLabs] = useState([])
   const [Progress, setProgress] = useState([])
   const { data: session } = useSession()
@@ -89,4 +89,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

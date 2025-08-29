@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 
-function page() {
+function Page() {
   const [products, setproducts] = useState(null)
   const searchparams = useSearchParams()
   const router = useRouter()
@@ -99,5 +99,5 @@ function page() {
   )
 }
 
-export default page
+export default Page
 

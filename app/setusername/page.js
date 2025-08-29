@@ -3,7 +3,7 @@ import { useSession } from 'next-auth/react';
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation';
 
-function page() {
+function Page() {
     const inputref = useRef();
     const { data: session } = useSession()
     const [errormessage, seterrormessage] = useState("")
@@ -50,4 +50,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 
-function page() {
+function Page() {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const [message, setmessage] = useState("")
     const pathname = usePathname()
@@ -83,4 +83,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

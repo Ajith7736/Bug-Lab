@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 
-function page() {
+function Page() {
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const [user, setuser] = useState(null)
@@ -66,4 +66,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

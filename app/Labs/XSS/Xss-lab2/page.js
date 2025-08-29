@@ -4,7 +4,7 @@ import Success from '@/components/Success'
 import { useSession } from 'next-auth/react'
 
 
-function page() {
+function Page() {
     const [alerttriggered, setalerttriggered] = useState(false)
     const { data: session } = useSession()
 
@@ -69,4 +69,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

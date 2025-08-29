@@ -3,7 +3,7 @@ import Success from '@/components/Success'
 import { useSession } from 'next-auth/react'
 import React, { useEffect, useState } from 'react'
 
-function page() {
+function Page() {
     const [inputvalue, setinputvalue] = useState(null)
     const [alerttriggered, setalerttriggered] = useState(false)
     const { data: session } = useSession()
@@ -68,4 +68,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

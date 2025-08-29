@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 
-function page() {
+function Page() {
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const [comments, setcomments] = useState(null)
@@ -124,4 +124,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

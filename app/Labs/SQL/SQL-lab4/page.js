@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 
-function page() {
+function Page() {
     const [products, setproducts] = useState(null)
     const searchparams = useSearchParams()
     const pathname = usePathname()
@@ -90,4 +90,4 @@ function page() {
     )
 }
 
-export default page
+export default Page
