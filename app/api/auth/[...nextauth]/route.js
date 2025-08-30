@@ -41,7 +41,7 @@ const handler = NextAuth({
                 if (account.provider == "google") {
                     const existinguser = await User.findOne({ Email: user.email })
                     if (!existinguser) {
-                        await User.create({
+                        const newuser = await User.create({
                             Email: user.email,
                             Name: user.name,
                             Profilepic: user.image,
@@ -82,7 +82,7 @@ const handler = NextAuth({
                 if (account.provider == "twitter") {
                     const existinguser = await User.findOne({ Email: user.email })
                     if (!existinguser) {
-                        await User.create({
+                        const newuser = await User.create({
                             Email: user.email,
                             Name: user.name,
                             Profilepic: user.image,
