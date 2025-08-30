@@ -10,7 +10,7 @@ function Page() {
 
   useEffect(() => {
     if (session && session?.user.username === null) {
-      router.push("/Setusername")
+      router.push("/setusername")
     } else if (session) {
       router.push("/Labs")
     }
