@@ -73,7 +73,7 @@ function Page() {
         <div className='text-center text-2xl font-bold'>Products</div>
         <div className='w-full h-[6vh] border border-gray-800  bg-white/5 rounded-xl flex items-center py-2 px-3 gap-5'>
           {["Electronics", "Toys", "Fashion", "Sports", "Wholesale"].map(cat => (
-            <div className='bg-white/8 p-1 max-[450px]:text-sm rounded-md border cursor-pointer border-gray-600' id={cat} onClick={() => { setcategory(cat.toLowerCase()) }}>{cat}</div>
+            <div key={cat} className='bg-white/8 p-1 max-[450px]:text-sm rounded-md border cursor-pointer border-gray-600' id={cat} onClick={() => { setcategory(cat.toLowerCase()) }}>{cat}</div>
           ))}
         </div>
         {category && <><div className='text-center text-2xl font-bold max-[450px]:text-xl'>Categories of {category.toUpperCase()}</div></>}
