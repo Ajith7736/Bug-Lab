@@ -71,22 +71,54 @@ export default function Home() {
         <div data-aos="fade-up" className="text-3xl lg:text-4xl max-[450px]:text-2xl font-bold text-center poppins-extrabold">Why Use <span className="text-[var(--button-color)]">BugLab</span> ?</div>
         <div className="flex mt-10 flex-col gap-10 items-center lg:flex-row lg:flex-wrap lg:justify-center">
           <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] justify-between lg:w-[20vw] bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
-            <div><Image src="/shield-svgrepo-com.png" className="size-30 max-[450px]:size-20 animate-pulse" alt="" /></div>
+            <div className="relative w-28 h-28 max-[450px]:w-20 max-[450px]:h-20">
+              <Image
+                src="/shield-svgrepo-com.png"
+                fill
+                className="animate-pulse object-contain"
+                alt="Shield Icon"
+              />
+            </div>
+
             <div className="text-2xl max-[450px]:text-base poppins-extrabold"> Safe & Legal Labs</div>
             <div className="text-lg max-[450px]:text-xs poppins-extrabold">Practice real vulnerabilities without any legal risks.</div>
           </div>
           <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] justify-between lg:w-[20vw] bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
-            <div><Image src="/brain.png" className="size-30 max-[450px]:size-20 animate-pulse" alt="" /></div>
+            <div className="relative w-28 h-28 max-[450px]:w-20 max-[450px]:h-20">
+              <Image
+                src="/brain.png"
+                fill
+                className="animate-pulse object-contain"
+                alt="Shield Icon"
+              />
+            </div>
+
             <div className="text-2xl max-[450px]:text-base poppins-extrabold">Beginners Friendly</div>
             <div className="text-lg max-[450px]:text-xs poppins-extrabold">Step-by-step challenges with hints and solutions.</div>
           </div>
           <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] justify-between border-animate-pulse lg:w-[20vw] bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
-            <div><Image src="/sword.png" className="size-28 max-[450px]:size-18 animate-pulse" alt="" /></div>
+            <div className="relative w-25 h-25 max-[450px]:w-20 max-[450px]:h-20">
+              <Image
+                src="/sword.png"
+                fill
+                className="animate-pulse object-contain"
+                alt="Shield Icon"
+              />
+            </div>
+
             <div className="text-2xl max-[450px]:text-base poppins-extrabold"> Leaderboard & Points</div>
             <div className="text-lg max-[450px]:text-xs poppins-extrabold">Compete with other users and track your progress.</div>
           </div>
           <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] justify-between lg:w-[20vw] bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
-            <div><Image src="/hacker.png" className="size-28 max-[450px]:size-18 animate-pulse" alt="" /></div>
+            <div className="relative w-28 h-28 max-[450px]:w-20 max-[450px]:h-20">
+              <Image
+                src="/hacker.png"
+                fill
+                className="animate-pulse object-contain"
+                alt="Shield Icon"
+              />
+            </div>
+
             <div className="text-2xl max-[450px]:text-base poppins-extrabold"> More Challenges</div>
             <div className="text-lg max-[450px]:text-xs poppins-extrabold">Continuously updated with new and diverse scenarios.</div>
           </div>
