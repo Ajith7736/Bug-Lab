@@ -90,7 +90,10 @@ const handler = NextAuth({
             return session;
         },
         redirect({ url, baseUrl }) {
-            return baseUrl;
+            if (url === baseUrl) {
+                return `${baseUrl}/setusername`
+            }
+            return url.startsWith(baseUrl) ? url : baseUrl;
         }
     },
     secret: process.env.NEXTAUTH_SECRET,
