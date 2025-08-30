@@ -38,69 +38,35 @@ const handler = NextAuth({
         async signIn({ user, account }) {
             try {
                 await connectdb();
-                if (account.provider == "google") {
-                    const existinguser = await User.findOne({ Email: user.email })
-                    if (!existinguser) {
-                        const newuser = await User.create({
-                            Email: user.email,
-                            Name: user.name,
-                            Profilepic: user.image,
-                            Username: null
-                        })
-                        let Labs = await Lab.find({}, "labId");
-                        const Progresslabs = Labs.map((item) => {
-                            return {
-                                userId: newuser._id,
-                                labId: item.labId
-                            }
-                        })
-                        await Progress.create(Progresslabs);
-                    }
-                    return true
-                }
-                if (account.provider == "github") {
-                    const existinguser = await User.findOne({ Email: user.email })
-                    if (!existinguser) {
-                        const newuser = await User.create({
-                            Email: user.email,
-                            Name: user.name,
-                            Profilepic: user.image,
-                            Username: null
-                        })
-                        let Labs = await Lab.find({}, "labId");
-                        const Progresslabs = Labs.map((item) => {
-                            return {
-                                userId: newuser._id,
-                                labId: item.labId
-                            }
-                        })
-                        await Progress.create(Progresslabs);
-                    }
 
-                    return true
+                if (!user.email) {
+                    console.error("No email returned");
+                    return false;
                 }
-                if (account.provider == "twitter") {
-                    const existinguser = await User.findOne({ Email: user.email })
-                    if (!existinguser) {
-                        const newuser = await User.create({
-                            Email: user.email,
-                            Name: user.name,
-                            Profilepic: user.image,
-                            Username: null
-                        })
-                        let Labs = await Lab.find({}, "labId");
-                        const Progresslabs = Labs.map((item) => {
-                            return {
-                                userId: newuser._id,
-                                labId: item.labId
-                            }
-                        })
-                        await Progress.create(Progresslabs);
-                    }
-                    return true
+
+                const existinguser = await User.findOne({ Email: user.email })
+
+                if (!existinguser) {
+                    const newuser = await User.create({
+                        Email: user.email,
+                        Name: user.name,
+                        Profilepic: user.image,
+                        Username: null
+                    });
+
+                    let Labs = await Lab.find({}, "labId");
+                    const Progresslabs = Labs.map((item) => {
+                        return {
+                            userId: newuser._id,
+                            labId: item.labId
+                        }
+                    })
+                    await Progress.create(Progresslabs);
                 }
+                return true;
             } catch (err) {
-                console.error(err)
+                console.error("SignIn error : ", err);
+                return false;
             }
         },
 
@@ -123,6 +89,9 @@ const handler = NextAuth({
             }
             return session;
         },
+        redirect({ url, baseUrl }) {
+            return baseUrl;
+        }
     },
     secret: process.env.NEXTAUTH_SECRET,
 });
