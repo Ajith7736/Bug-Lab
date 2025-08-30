@@ -40,7 +40,21 @@ function Navbar() {
                     </ul>
                 </div>
                 <div className=''>
-                    {session ? <div className='flex gap-5 items-center'><Image className='w-11 h-11 rounded-full' src={session?.user.image} alt="" /> <button className='bg-[var(--button-color)] px-6 py-3 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90' onClick={() => signOut()}>Logout</button></div> : <Link href={"/Login"}><button className='bg-[var(--button-color)] px-6 py-3 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90'>Login</button></Link>}
+                    {session ?
+                        <div className='flex gap-5 items-center'>
+                            <div className="relative w-11 h-11 max-[450px]:w-8 max-[450px]:h-8">
+                                <Image
+                                    src={session.user.image}
+                                    alt="Profile picture"
+                                    fill
+                                    className="rounded-full object-cover"
+                                />
+                            </div>                            <button className='bg-[var(--button-color)] px-6 py-3 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90' onClick={() => signOut()}>Logout</button>
+                        </div> :
+                        <Link href={"/Login"}>
+                            <button className='bg-[var(--button-color)] px-6 py-3 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90'>Login</button>
+                        </Link>
+                    }
                 </div>
             </div>
             {/* mobile nav */}
@@ -55,7 +69,22 @@ function Navbar() {
                     </ul>
                 </div>
                 <div className=''>
-                    {session ? <div className='flex gap-5 items-center'><Image src={session.user.image} className='w-11 h-11 max-[450px]:w-8 max-[450px]:h-8 rounded-full' alt="" /><button className='bg-[var(--button-color)] px-6 py-3 max-[450px]:px-4 max-[450px]:py-2 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90 max-[450px]:text-sm max-[380px]:text-xs poppins-semibold' onClick={() => signOut()}>Logout</button></div> : <Link href={"/Login"}><button className='bg-[var(--button-color)] px-6 py-3 max-[450px]:px-4 max-[450px]:py-2 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90 max-[450px]:text-sm max-[380px]:text-xs'>Login</button></Link>}
+                    {session ?
+                        <div className='flex gap-5 items-center'>
+                            <div className="relative w-11 h-11 max-[450px]:w-8 max-[450px]:h-8">
+                                <Image
+                                    src={session.user.image}
+                                    alt="Profile picture"
+                                    fill
+                                    className="rounded-full object-cover"
+                                />
+                            </div>
+                            <button className='bg-[var(--button-color)] px-6 py-3 max-[450px]:px-4 max-[450px]:py-2 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90 max-[450px]:text-sm max-[380px]:text-xs poppins-semibold' onClick={() => signOut()}>Logout</button>
+                        </div> :
+                        <Link href={"/Login"}>
+                            <button className='bg-[var(--button-color)] px-6 py-3 max-[450px]:px-4 max-[450px]:py-2 lg:px-10 rounded-full font-bold cursor-pointer hover:bg-[var(--button-color)]/90 max-[450px]:text-sm max-[380px]:text-xs'>Login</button>
+                        </Link>
+                    }
                 </div>
             </div>
             {/* sidebar */}
