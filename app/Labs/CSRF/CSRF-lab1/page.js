@@ -43,11 +43,11 @@ function Page() {
 
     return (
         <>
-            <div className='bg-white/5 z-10 border border-l-0 border-r-0 border-gray-800 text-white font-semibold h-auto p-5 text-xl'>This lab contains a CSRF vulnerability in the profile update functionality.
+            <div className='bg-white/5 z-10 border border-l-0 border-r-0 border-gray-800 text-white font-semibold h-auto p-5 text-xl max-[450px]:text-sm'>This lab contains a CSRF vulnerability in the profile update functionality.
                 To solve the lab, First you need to login as user <br />
                 <span className="text-red-500">Username</span> : weiner <br />
                 <span className="text-red-500">Password</span> : peter <br />
-                trick the user to visit <span className='bg-gray-200 text-lg p-2 text-black'>/Labs/CSRF/CSRF-lab1/Evil</span> endpoint.
+                trick the user to visit <span className='bg-gray-200 text-lg max-[450px]:text-xs  p-2 max-[450px]:p-1 text-black'>/Labs/CSRF/CSRF-lab1/Evil</span> endpoint.
                 <div>⚠️ This is a deliberately vulnerable application built for educational purposes only.</div>
             </div>
             <div className='p-5 flex flex-col lg:items-center'>

@@ -7,7 +7,7 @@ function Success() {
 
   const handleclick = async () => {
     if (pathname === "/Labs/CSRF/CSRF-lab2") {
-      await fetch("http://localhost:3000/api/lab-user/updatepassword", {
+      await fetch("/api/lab-user/updatepassword", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -16,13 +16,20 @@ function Success() {
         credentials: "include"
       })
     } else if (pathname === "/Labs/CSRF/CSRF-lab1/Update") {
-      await fetch("http://localhost:3000/api/lab-user/update-email", {
+      await fetch("/api/lab-user/update-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ Email: "weiner123@gmail.com", Username: "weiner" }),
         credentials: "include"
+      })
+    } else if (pathname === "/Labs/XSS/Xss-lab3") {
+      await fetch("/api/comments",{
+        method : "DELETE",
+        headers : {
+          "Content-Type" : "application/json"
+        }
       })
     }
   }

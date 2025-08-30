@@ -36,3 +36,13 @@ export async function POST(request) {
         return NextResponse.json({ message: "Server Error" }, { status: 500 })
     }
 }
+
+export async function DELETE(request) {
+    try {
+        await connectdb()
+        await Comment.deleteMany({});
+        return NextResponse.json({ success: true }, { status: 200 })
+    } catch (err) {
+        return NextResponse.json({ message: "Server Error" }, { status: 500 })
+    }
+}

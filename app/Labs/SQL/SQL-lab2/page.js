@@ -54,7 +54,7 @@ function ProductsPage() {
     return (
         <>
             {success && <div><Success /></div>}
-            <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl'>
+            <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl max-[450px]:text-sm'>
                 This lab contains a SQL injection vulnerability in the categories.
                 To solve the lab, perform a SQL injection attack that shows all the <span className='text-red-500'>hidden products</span>.
                 <div>⚠️ Deliberately vulnerable for educational purposes only.</div>
@@ -63,7 +63,7 @@ function ProductsPage() {
                 <div className='text-center text-2xl font-bold'>Products</div>
                 <div className='w-full h-[5vh] bg-white/5 rounded-xl flex items-center px-3 gap-5'>
                     {["All", "Electronics", "Food", "Clothing", "Furniture"].map(cat => (
-                        <div key={cat} className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600'
+                        <div key={cat} className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600 max-[450px]:text-sm'
                             id={cat} onClick={() => setcategory(cat)}>
                             {cat}
                         </div>
@@ -73,9 +73,9 @@ function ProductsPage() {
                 <div className='flex flex-col gap-5'>
                     {products?.map((item, index) => (
                         <div key={index} className='flex flex-col gap-2'>
-                            <div className='text-lg'>{item.title}</div>
-                            <div>{item.description}</div>
-                            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero, omnis eaque. Eaque natus cupiditate voluptate dolorem nemo sapiente laboriosam ex magni modi similique!</div>
+                            <div className='text-lg max-[450px]:text-base'>{item.title}</div>
+                            <div className='max-[450px]:text-sm'>{item.description}</div>
+                            <div className='max-[450px]:text-xs'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero, omnis eaque. Eaque natus cupiditate voluptate dolorem nemo sapiente laboriosam ex magni modi similique!</div>
                             <div className='bg-gray-700 w-full h-[1px]'></div>
                         </div>
                     ))}

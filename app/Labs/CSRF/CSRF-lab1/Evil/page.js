@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 export default function Evilpage() {
     useEffect(() => {
-      fetch("http://localhost:3000/api/lab-user/update-email",{
+      fetch("/api/lab-user/update-email",{
         method : "POST",
         headers : {
             "Content-Type" : "application/json"

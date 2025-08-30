@@ -41,7 +41,7 @@ function ProductsPageContent() {
 
     return (
         <>
-            <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl'>
+            <div className='bg-white/5 z-10 text-white border border-l-0 border-r-0 border-gray-800 font-semibold h-auto p-5 text-xl max-[450px]:text-sm'>
                 This lab contains a SQL injection vulnerability in the categories.
                 To solve the lab, perform a SQL injection <span className="text-red-500">UNION</span> attack that retrieves all usernames and passwords,
                 and use the information to log in as the <span className='text-red-500'>administrator</span> user.
@@ -50,22 +50,25 @@ function ProductsPageContent() {
 
             <div className='flex gap-3 p-5 w-full justify-end'>
                 <Link href={"/Labs/SQL/SQL-lab4"} className={pathname === "/Labs/SQL/SQL-lab4" ? "text-white" : "text-gray-600"}>
-                    <div className='cursor-pointer'>Home</div>
+                    <div className='cursor-pointer max-[450px]:text-sm'>Home</div>
                 </Link>
                 <div className='bg-white/30 w-[1px] h-[20px]'></div>
                 <Link href={"/Labs/SQL/SQL-lab4/Login"} className={pathname === "/Labs/SQL/SQL-lab4/Login" ? "text-white" : "text-gray-600"}>
-                    <div className='cursor-pointer'>Login</div>
+                    <div className='cursor-pointer max-[450px]:text-sm'>Login</div>
                 </Link>
             </div>
 
             <div className='p-5 flex flex-col gap-6'>
                 <div className='text-center text-3xl font-bold'>Products</div>
                 <div className='w-full h-[5vh] bg-white/5 rounded-xl flex items-center px-3 gap-5'>
-                    <div className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600' id="All" onClick={(e) => setcategory(e.target.id)}>All</div>
-                    <div className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600' id="Electronics" onClick={(e) => setcategory(e.target.id)}>Electronics</div>
-                    <div className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600' id="Food" onClick={(e) => setcategory(e.target.id)}>Food</div>
-                    <div className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600' id="Clothing" onClick={(e) => setcategory(e.target.id)}>Clothing</div>
-                    <div className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600' id="Furniture" onClick={(e) => setcategory(e.target.id)}>Furniture</div>
+                    {["All", "Electronics", "Food", "Clothing", "Furniture"].map((cat) => (
+                        <div key={cat}
+                            id={cat}
+                            className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600 max-[450px]:text-sm'
+                            onClick={() => setcategory(cat)}>
+                            {cat}
+                        </div>
+                    ))}
                 </div>
 
                 {category && <div className='text-center text-2xl font-bold'>Categories of {category}</div>}
@@ -73,9 +76,9 @@ function ProductsPageContent() {
                 <div className='flex flex-col gap-5'>
                     {products?.map((item, index) => (
                         <div key={index} className='flex flex-col gap-2'>
-                            <div className='text-lg'>{item.title}</div>
-                            <div>{item.description}</div>
-                            <div>
+                            <div className='text-lg max-[450px]:text-base'>{item.title}</div>
+                            <div className='max-[450px]:text-sm'>{item.description}</div>
+                            <div className='max-[450px]:text-xs'>
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi cumque ea sit, maxime quos obcaecati...
                             </div>
                             <div className='bg-gray-700 w-full h-[1px]'></div>
