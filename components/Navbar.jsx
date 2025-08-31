@@ -30,7 +30,7 @@ function Navbar() {
 
     return (
         <>
-            <div className='hidden md:flex justify-between bg-white/5 backdrop-blur-sm rounded-full py-5 px-10 items-center h-[10vh] m-5'>
+            <div className='hidden md:flex justify-between bg-white/5 backdrop-blur-sm rounded-full py-5 px-10 items-center h-[10vh] md:h-[6vh] XL:h-[10vh] m-5'>
                 <Link href={"/"}><div className='font-bold text-lg lg:text-3xl poppins-extrabold'>Buglab</div></Link>
                 <div>
                     <ul className='flex gap-10 font-medium lg:text-lg '>
