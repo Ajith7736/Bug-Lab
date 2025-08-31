@@ -60,11 +60,11 @@ function ProductsPageContent() {
 
             <div className='p-5 flex flex-col gap-6'>
                 <div className='text-center text-3xl font-bold'>Products</div>
-                <div className='w-full h-[5vh] bg-white/5 rounded-xl flex items-center px-3 gap-5'>
+                <div className='w-full h-[5vh] bg-white/5 rounded-xl flex items-center px-3 max-[450px]:gap-2 border border-gray-800 gap-5'>
                     {["All", "Electronics", "Food", "Clothing", "Furniture"].map((cat) => (
                         <div key={cat}
                             id={cat}
-                            className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600 max-[450px]:text-sm'
+                            className='bg-white/8 p-1 rounded-md border cursor-pointer border-gray-600 max-[450px]:text-xs'
                             onClick={() => setcategory(cat)}>
                             {cat}
                         </div>
