@@ -30,7 +30,7 @@ function Navbar() {
 
     return (
         <>
-            <div className='hidden md:flex justify-between bg-white/5 backdrop-blur-sm rounded-full py-5 px-10 items-center h-[10vh] md:h-[6vh] XL:h-[10vh] m-5'>
+            <div className='hidden md:flex justify-between bg-white/5 backdrop-blur-sm rounded-full py-5 px-10 items-center h-[10vh] md:h-[6vh] xl:landscape:h-[10vh] landscape:h-[16vh] xl:h-[10vh] m-5'>
                 <Link href={"/"}><div className='font-bold text-lg lg:text-3xl poppins-extrabold'>Buglab</div></Link>
                 <div>
                     <ul className='flex gap-10 font-medium lg:text-lg '>
@@ -58,7 +58,7 @@ function Navbar() {
                 </div>
             </div>
             {/* mobile nav */}
-            <div className='flex md:hidden justify-between bg-white/5 backdrop-blur-sm rounded-full py-5 px-10 items-center h-[10vh] m-5'>
+            <div className='flex md:hidden justify-between bg-white/5 backdrop-blur-sm rounded-full py-5 px-10 items-center h-[10vh] landscape:h-[18vh] m-5'>
                 <GiHamburgerMenu className='size-6 max-[450px]:size-4 cursor-pointer' onClick={handlehandburger} />
                 <Link href={"/"}><div className='font-bold text-2xl lg:text-3xl poppins-extrabold max-[450px]:text-sm'>Buglab</div></Link>
                 <div className='hidden'>

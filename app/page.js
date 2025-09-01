@@ -70,7 +70,7 @@ export default function Home() {
       <div className="w-full h-auto pt-5 lg:pt-15">
         <div data-aos="fade-up" className="text-3xl lg:text-4xl max-[450px]:text-2xl font-bold text-center poppins-extrabold">Why Use <span className="text-[var(--button-color)]">BugLab</span> ?</div>
         <div className="flex mt-10 flex-col gap-10 items-center md:flex-row md:flex-wrap md:justify-center">
-          <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] md:h-[30vh] md:w-[45vw] md:justify-center md:gap-8 justify-between xl:h-[40vh] lg:h-[25vh] lg:w-[35vw] bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
+          <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] xl:landscape:h-[40vh] landscape:h-[70vh] md:h-[30vh] md:w-[45vw] md:justify-center md:gap-8 justify-between xl:h-[40vh] lg:h-[25vh] lg:w-[35vw] bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
             <div className="relative w-28 h-28 max-[450px]:w-20 max-[450px]:h-20">
               <Image
                 src="/shield-svgrepo-com.png"
@@ -83,7 +83,7 @@ export default function Home() {
             <div className="text-2xl max-[450px]:text-base poppins-extrabold"> Safe & Legal Labs</div>
             <div className="text-lg max-[450px]:text-xs poppins-extrabold">Practice real vulnerabilities without any legal risks.</div>
           </div>
-          <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] md:h-[30vh] md:w-[45vw] md:justify-center md:gap-8 justify-between xl:h-[40vh] lg:h-[25vh] lg:w-[35vw] bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
+          <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] xl:landscape:h-[40vh] landscape:h-[70vh] md:h-[30vh] md:w-[45vw] md:justify-center md:gap-8 justify-between xl:h-[40vh] lg:h-[25vh] lg:w-[35vw] bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
             <div className="relative w-28 h-28 max-[450px]:w-20 max-[450px]:h-20">
               <Image
                 src="/brain.png"
@@ -96,7 +96,7 @@ export default function Home() {
             <div className="text-2xl max-[450px]:text-base poppins-extrabold">Beginners Friendly</div>
             <div className="text-lg max-[450px]:text-xs poppins-extrabold">Step-by-step challenges with hints and solutions.</div>
           </div>
-          <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] md:h-[30vh] md:w-[45vw] md:justify-center md:gap-8 justify-between xl:h-[40vh] lg:h-[25vh] lg:w-[35vw] border-animate-pulse bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
+          <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] xl:landscape:h-[40vh] landscape:h-[70vh] md:h-[30vh] md:w-[45vw] md:justify-center md:gap-8 justify-between xl:h-[40vh] lg:h-[25vh] lg:w-[35vw] border-animate-pulse bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
             <div className="relative w-25 h-25 max-[450px]:w-20 max-[450px]:h-20">
               <Image
                 src="/sword.png"
@@ -109,7 +109,7 @@ export default function Home() {
             <div className="text-2xl max-[450px]:text-base poppins-extrabold"> Leaderboard & Points</div>
             <div className="text-lg max-[450px]:text-xs poppins-extrabold">Compete with other users and track your progress.</div>
           </div>
-          <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] md:h-[30vh] md:w-[45vw] md:justify-center md:gap-8 justify-between xl:h-[40vh] lg:h-[25vh] lg:w-[35vw] bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
+          <div data-aos="fade-up" className="flex flex-col w-[70vw] max-[450px]:h-[28vh] max-[380px]:h-[35vh] h-[43vh] xl:landscape:h-[40vh] landscape:h-[70vh] md:h-[30vh] md:w-[45vw] md:justify-center md:gap-8 justify-between xl:h-[40vh] lg:h-[25vh] lg:w-[35vw] bg-white/5 border border-gray-800 p-5 gap-5 max-[450px]:gap-7 max-[450px]:justify-normal items-center text-center rounded-2xl">
             <div className="relative w-28 h-28 max-[450px]:w-20 max-[450px]:h-20">
               <Image
                 src="/hacker.png"
@@ -146,21 +146,21 @@ export default function Home() {
       < div >
         <div data-aos="fade-up" className="text-3xl max-[450px]:text-2xl text-center poppins-extrabold mt-10 lg:text-4xl">Start in 3 Easy Steps</div>
         <div className="my-10 mx-10 flex flex-col lg:flex-row lg:flex-wrap lg:justify-center gap-10 items-center">
-          <div data-aos="fade-up" className="bg-white/5 p-5 w-[50vw] md:w-[40vw] lg:w-[25vw] md:h-[25vh]  lg:max-h-[35vh] xl:h-[40vh] rounded-xl flex flex-col gap-5 items-center justify-between md:justify-center md:gap-8 border border-gray-800">
+          <div data-aos="fade-up" className="bg-white/5 p-5 w-[50vw] md:w-[40vw] lg:w-[25vw] md:h-[25vh] landscape:h-[70vh]  lg:max-h-[35vh] xl:h-[40vh] rounded-xl flex flex-col gap-5 items-center justify-between md:justify-center md:gap-8 border border-gray-800">
             <div className="bg-blue-800 h-15 w-15 max-[450px]:h-10 max-[450px]:w-10 flex justify-center items-center rounded-full">
               <div className="font-bold text-2xl max-[450px]:text-lg">1</div>
             </div>
             <div className="font-bold text-center text-xl max-[450px]:text-base">Create an Account</div>
             <div className="text-center font-medium max-[450px]:text-xs">Sign up with Google,Github or Twitter to get started instantly</div>
           </div>
-          <div data-aos="fade-up" className="bg-white/5 p-5 w-[50vw] md:w-[40vw] lg:w-[25vw] md:h-[25vh] lg:max-h-[35vh] xl:h-[40vh] rounded-xl flex flex-col gap-5 items-center justify-between md:justify-center md:gap-8 border border-gray-800">
+          <div data-aos="fade-up" className="bg-white/5 p-5 w-[50vw] md:w-[40vw] lg:w-[25vw] md:h-[25vh] landscape:h-[70vh] lg:max-h-[35vh] xl:h-[40vh] rounded-xl flex flex-col gap-5 items-center justify-between md:justify-center md:gap-8 border border-gray-800">
             <div className="bg-green-700 h-15 w-15 max-[450px]:h-10 max-[450px]:w-10 flex justify-center items-center rounded-full">
               <div className="font-bold text-2xl max-[450px]:text-lg">2</div>
             </div>
             <div className="font-bold text-center text-xl max-[450px]:text-base">Choose a Lab</div>
             <div className="text-center font-medium max-[450px]:text-xs">Pick from a variety of real-world vulnerability labs to practice safely</div>
           </div>
-          <div data-aos="fade-up" className="bg-white/5 p-5 w-[50vw] md:w-[40vw] lg:w-[25vw] md:h-[25vh] lg:max-h-[35vh] xl:h-[40vh] rounded-xl flex flex-col gap-5 items-center justify-between  md:justify-center md:gap-8 border border-gray-800">
+          <div data-aos="fade-up" className="bg-white/5 p-5 w-[50vw] md:w-[40vw] lg:w-[25vw] md:h-[25vh]  landscape:h-[70vh] lg:max-h-[35vh] xl:h-[40vh] rounded-xl flex flex-col gap-5 items-center justify-between  md:justify-center md:gap-8 border border-gray-800">
             <div className="bg-violet-600 h-15 w-15 max-[450px]:h-10 max-[450px]:w-10 flex justify-center items-center rounded-full">
               <div className="font-bold text-2xl max-[450px]:text-lg">3</div>
             </div>

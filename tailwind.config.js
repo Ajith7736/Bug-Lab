@@ -15,5 +15,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('landscape', '@media (orientation: landscape)');
+    },
+  ],
 };
