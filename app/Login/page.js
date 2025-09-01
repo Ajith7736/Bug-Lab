@@ -19,7 +19,7 @@ function Page() {
 
   return (
     <div className='flex flex-col  items-center'>
-      <div className='bg-white/5 w-[90vw] md:w-[70vw] lg:w-[40vw] p-5 flex flex-col gap-10 items-center h-[60vh] mt-15 rounded-lg border border-gray-800 justify-center'>
+      <div className='bg-white/5 w-[90vw] max-[450px]:h-[45vh]  md:w-[70vw] lg:w-[40vw] p-5 flex flex-col gap-10 items-center h-[60vh] landscape:h-[90vh] xl:landscape:h-[50vh] md:h-[50vh] landscape:mb-10 mt-15 rounded-lg border border-gray-800 justify-center'>
         <div className='text-3xl max-[390px]:text-xl max-[450px]:text-2xl font-bold'>Login with your Account</div>
         <button onClick={() => signIn("google")} className="w-full max-[450px]:text-sm max-[390px]:text-xs flex items-center justify-center gap-x-3 py-2.5 border border-gray-800 rounded-lg hover:bg-white/5 duration-150 cursor-pointer">
           <svg className="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
