@@ -88,13 +88,13 @@ function Navbar() {
                 </div>
             </div>
             {/* sidebar */}
-            <div ref={sidebarref} className={`bg-gray-950/80 backdrop-blur-xl border-r-2 border-gray-900 md:hidden w-[60vw] h-full p-10 absolute top-0 z-1 shadow-xl flex flex-col gap-8 transition-all duration-500 ${sidebar ? 'left-0' : '-left-[100vw]'}`}>
+            <div ref={sidebarref} className={`bg-gray-950/80 backdrop-blur-xl border-r-2 border-gray-900 md:hidden w-[60vw] h-full p-10 absolute top-0 z-1 shadow-xl flex flex-col gap-8 landscape:gap-3 transition-all duration-500 ${sidebar ? 'left-0' : '-left-[100vw]'}`}>
                 <div className='flex justify-end'>
                     <IoMdClose className='size-6 cursor-pointer' onClick={handleclose} />
                 </div>
-                <Link href={"/"} className={pathname === "/" ? "text-black bg-white rounded-lg" : "text-white"}><div className='text-xl max-[450px]:text-base  p-4 rounded-xl poppins-extrabold' onClick={handleclose}> Home </div></Link>
-                <Link href={"/Leaderboard"} className={pathname === "/Leaderboard" ? "text-black bg-white rounded-lg" : "text-white"}><div className='text-xl max-[450px]:text-base poppins-extrabold  p-4 rounded-xl' onClick={handleclose}>Leaderboard </div></Link>
-                <Link href={"/Labs"} className={pathname === "/Labs" ? "text-black bg-white rounded-lg" : "text-white"}><div className='text-xl max-[450px]:text-base poppins-extrabold  p-4 rounded-xl' onClick={handleclose}>Labs </div></Link>
+                <Link href={"/"} className={pathname === "/" ? "text-black bg-white rounded-lg" : "text-white"}><div className='text-xl max-[450px]:text-base landscape:text-base  p-4 rounded-xl poppins-extrabold' onClick={handleclose}> Home </div></Link>
+                <Link href={"/Leaderboard"} className={pathname === "/Leaderboard" ? "text-black bg-white rounded-lg" : "text-white"}><div className='text-xl max-[450px]:text-base landscape:text-base poppins-extrabold  p-4 rounded-xl' onClick={handleclose}>Leaderboard </div></Link>
+                <Link href={"/Labs"} className={pathname === "/Labs" ? "text-black bg-white rounded-lg" : "text-white"}><div className='text-xl max-[450px]:text-base landscape:text-base poppins-extrabold  p-4 rounded-xl' onClick={handleclose}>Labs </div></Link>
             </div >
         </>
     )
