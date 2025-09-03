@@ -5,13 +5,26 @@ import { HiArrowLongDown } from "react-icons/hi2";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import Loading from "@/components/Loading";
+import { useSession } from "next-auth/react";
 
 
 
 export default function Home() {
+
+  const { data: session, status } = useSession()
+  const [loading, setloading] = useState(false)
+
+  useEffect(() => {
+    if (status == "loading") {
+      setloading(true)
+    } else {
+      setloading(false)
+    }
+  }, [status])
 
 
   useEffect(() => {
@@ -50,6 +63,7 @@ export default function Home() {
     <>
       {/* Landing page */}
       <div>
+        {loading && <Loading />}
         <div className=" bg-[url(/bg.png)] bg-no-repeat bg-cover lg:bg-position-[center_top] bg-center h-[100vh] w-full absolute top-0 -z-10 left-0"></div>
         <div data-aos="fade-up" className="h-[85vh] w-full flex flex-col items-center justify-center gap-8">
           <div className="text-4xl poppins-extrabold lg:text-5xl max-[450px]:text-3xl max-[380px]:text-2xl text-center">

@@ -2,15 +2,23 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import Lab from '@/components/Lab';
 import { useSession } from 'next-auth/react';
+import Loading from '@/components/Loading';
 
 function Page() {
   const [Labs, setLabs] = useState([])
   const [Progress, setProgress] = useState([])
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
+  const [loading, setloading] = useState(false)
 
   useEffect(() => {
     fetchlabs()
   }, [])
+
+  useEffect(() => {
+    if (status == "loading") {
+      setloading(true)
+    }
+  }, [status])
 
   useEffect(() => {
     if (session) {
@@ -21,6 +29,7 @@ function Page() {
 
 
   const fetchlabs = async () => {
+    setloading(true)
     let res = await fetch("/api/getlabs", {
       method: "GET",
       headers: {
@@ -30,6 +39,7 @@ function Page() {
     let data = await res.json();
     if (res.status === 200) {
       setLabs(data.Labs)
+      setloading(false)
     }
   }
 
@@ -58,6 +68,7 @@ function Page() {
 
   return (
     <div>
+      {loading && <Loading />}
       <div className='text-center poppins-extrabold text-3xl max-[450px]:text-2xl'>Labs</div>
       <div className='p-5 '>
         <div className='poppins-extrabold text-xl max-[450px]:text-base' id='xss'>XSS</div>
