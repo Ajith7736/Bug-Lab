@@ -27,6 +27,9 @@ function Page() {
       setuserdata(data)
       setloading(false)
     }
+    if(res.status === 400 || res.status === 500){
+      setloading(false)
+    }
   }
 
   useEffect(() => {

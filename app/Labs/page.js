@@ -41,6 +41,9 @@ function Page() {
       setLabs(data.Labs)
       setloading(false)
     }
+    if(res.status === 400 || res.status === 500){
+      setloading(false)
+    }
   }
 
   const fetchprogress = async () => {
