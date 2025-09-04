@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
+import Loading from '@/components/Loading';
 
 function Page() {
 
@@ -9,10 +10,22 @@ function Page() {
     const [user, setuser] = useState(null)
     const [errormessage, seterrormessage] = useState("")
     const router = useRouter()
+    const [loading, setloading] = useState(false)
 
     const handlesubmit = async (data) => {
+        setloading(true)
+        await delay(1)
         await getuser(data)
+        setloading(false)
         reset()
+    }
+
+    const delay = (t) => {
+        return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                resolve()
+            }, t * 1000);
+        })
     }
 
 
@@ -43,6 +56,7 @@ function Page() {
 
     return (
         <>
+            {loading && <Loading />}
             <div className='bg-white/5 z-10 border border-l-0 border-r-0 border-gray-800 text-white font-semibold h-auto p-5 text-xl max-[450px]:text-sm'>This lab contains a CSRF vulnerability in the profile update functionality.
                 To solve the lab, First you need to login as user <br />
                 <span className="text-red-500">Username</span> : weiner <br />

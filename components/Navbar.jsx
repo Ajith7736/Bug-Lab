@@ -76,6 +76,7 @@ function Navbar() {
                                     src={session.user.image}
                                     alt="Profile picture"
                                     fill
+                                    sizes='40px'
                                     className="rounded-full object-cover"
                                 />
                             </div>

@@ -3,21 +3,34 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Success from '@/components/Success';
 import { useSession } from 'next-auth/react';
+import Loading from '@/components/Loading';
 
 function Page() {
   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
   const [message, setmessage] = useState("")
   const [success, setsuccess] = useState(false)
   const { data: session } = useSession()
+  const [loading, setloading] = useState(false)
 
 
   const handlesubmit = async (data) => {
+    setloading(true)
+    await delay(1)
     await getuser(data)
     if (data.Username === "administrator" && data.Password === "admin39502") {
       setsuccess(true)
     }
+    setloading(false)
     reset()
   }
+
+  const delay = (t) => {
+        return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                resolve()
+            }, t * 1000);
+        })
+    }
 
   const getuser = async (data) => {
     let res = await fetch("/api/nosqlroutes/getuser", {
@@ -37,23 +50,24 @@ function Page() {
   }
 
   useEffect(() => {
-        if (success && session?.user?.id) {
-            solvedlab()
-        }
-    }, [success, session])
-
-    const solvedlab = async () => {
-        await fetch("/api/updateprogress", {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ userId: session?.user.id, labId: "NOSQL-lab3" })
-        })
+    if (success && session?.user?.id) {
+      solvedlab()
     }
+  }, [success, session])
+
+  const solvedlab = async () => {
+    await fetch("/api/updateprogress", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ userId: session?.user.id, labId: "NOSQL-lab3" })
+    })
+  }
 
   return (
     <>
+      {loading && <Loading />}
       {success && <>
         <Success />
       </>}

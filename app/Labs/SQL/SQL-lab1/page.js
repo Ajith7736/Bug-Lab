@@ -3,17 +3,30 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Success from '@/components/Success';
 import { useSession } from 'next-auth/react';
+import Loading from '@/components/Loading';
 
 function Page() {
-    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, watch, formState: { errors , isSubmitting } } = useForm();
     const [message, setmessage] = useState("")
     const [success, setsuccess] = useState(false)
     const { data: session } = useSession()
+    const [loading, setloading] = useState(false)
 
 
-    const handlesubmit = (data) => {
+    const handlesubmit = async (data) => {
+        setloading(true)
+        await delay(2)
         getuser(data)
+        setloading(false)
         reset()
+    }
+
+    const delay = (t) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve()
+            }, t * 1000);
+        })
     }
 
     const getuser = async (data) => {
@@ -52,6 +65,7 @@ function Page() {
 
     return (
         <>
+            {loading && <Loading />}
             {success && <>
                 <Success />
             </>}
@@ -66,7 +80,7 @@ function Page() {
                     <input type="text" {...register("username")} id='username' className=' bg-white/5 w-full lg:w-[40vw] p-2 rounded-xl border border-gray-800 focus:outline-none' />
                     <label htmlFor="password">Password : </label>
                     <input type="password" {...register("password")} id='password' className=' bg-white/5 w-full lg:w-[40vw] p-2 rounded-xl border border-gray-800 focus:outline-none' />
-                    <input type="submit" value="login" name="" id="" className='bg-[var(--button-color)] p-2 rounded-md cursor-pointer' />
+                    <input type="submit" disabled={isSubmitting} value="Login" name="" id="" className='bg-[var(--button-color)] p-2 rounded-md cursor-pointer font-bold' />
                 </form>
                 {message && <><div className='text-xl '>{message}</div></>}
             </div>

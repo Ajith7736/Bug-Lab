@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import Success from '@/components/Success';
+import Loading from '@/components/Loading';
 
 function Page() {
 
@@ -11,11 +12,23 @@ function Page() {
     const [comments, setcomments] = useState(null)
     const [alerttriggered, setalerttriggered] = useState(false)
     const { data: session } = useSession()
+    const [loading, setloading] = useState(false)
 
     const onSubmit = async (data) => {
+        setloading(true)
+        await delay(2)
         await submitcomment(data)
         await getcomment();
+        setloading(false)
         reset();
+    }
+
+    const delay = (t) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve()
+            }, t * 1000);
+        })
     }
 
 
@@ -82,6 +95,7 @@ function Page() {
 
     return (
         <>
+            {loading && <Loading />}
             {alerttriggered && <>
                 <Success />
             </>}

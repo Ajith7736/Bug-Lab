@@ -5,6 +5,7 @@ import Success from '@/components/Success';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import Loading from '@/components/Loading';
 
 function Page() {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
@@ -12,11 +13,23 @@ function Page() {
     const pathname = usePathname()
     const [success, setsuccess] = useState(false)
     const { data: session } = useSession()
+    const [loading, setloading] = useState(false)
 
 
-    const handlesubmit = (data) => {
+    const handlesubmit = async (data) => {
+        setloading(true)
+        await delay(2)
         getuser(data)
+        setloading(false)
         reset()
+    }
+
+    const delay = (t) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve()
+            }, t * 1000);
+        })
     }
 
     const getuser = async (data) => {
@@ -55,6 +68,7 @@ function Page() {
 
     return (
         <>
+            {loading && <Loading />}
             {success && <>
                 <Success />
             </>}
@@ -63,7 +77,7 @@ function Page() {
                 <div>⚠️ This is a deliberately vulnerable application built for educational purposes only.</div>
             </div>
             <div className='flex gap-3 p-5 w-full justify-end'>
-                 <Link href={"/Labs/SQL/SQL-lab4"} className={pathname === "/Labs/SQL/SQL-lab4" ? "text-white" : "text-gray-600"}><div className='cursor-pointer max-[450px]:text-sm'>Home</div></Link>
+                <Link href={"/Labs/SQL/SQL-lab4"} className={pathname === "/Labs/SQL/SQL-lab4" ? "text-white" : "text-gray-600"}><div className='cursor-pointer max-[450px]:text-sm'>Home</div></Link>
                 <div className='bg-white/30 w-[1px] h-[20px]'></div>
                 <Link href={"/Labs/SQL/SQL-lab4/Login"} className={pathname === "/Labs/SQL/SQL-lab4/Login" ? "text-white" : "text-gray-600"}><div className='cursor-pointer max-[450px]:text-sm'>Login</div></Link>
             </div>

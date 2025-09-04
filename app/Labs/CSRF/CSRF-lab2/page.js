@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import Success from '@/components/Success';
 import { useSession } from 'next-auth/react';
+import Loading from '@/components/Loading';
 
 function Page() {
 
@@ -14,6 +15,7 @@ function Page() {
     const router = useRouter()
     const [success, setsuccess] = useState(false)
     const { data: session } = useSession()
+    const [loading, setloading] = useState(false)
 
     useEffect(() => {
         getpassword()
@@ -28,13 +30,23 @@ function Page() {
 
 
     const handlesubmit = async (data) => {
+        setloading(true)
+        await delay(1)
         if (data.Username !== "weiner") {
             await getuser(data)
         } else {
             seterrormessage("Invalid Username or Password")
         }
-
+        setloading(false)
         reset()
+    }
+
+    const delay = (t) => {
+        return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                resolve()
+            }, t * 1000);
+        })
     }
 
     const getpassword = async () => {
@@ -95,6 +107,7 @@ function Page() {
 
     return (
         <>
+            {loading && <Loading />}
             {success && <>
                 <Success updateuser="true" />
             </>}

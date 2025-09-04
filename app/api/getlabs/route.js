@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
     try {
         await connectdb()
-        const Labs = await Lab.find()
+        const Labs = await Lab.find().sort({ labId: 1 })
         return NextResponse.json({ Labs }, { status: 200 })
     } catch (err) {
         console.log(err)
