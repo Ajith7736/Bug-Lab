@@ -2,6 +2,8 @@ import Dummydata from "@/models/Dummydata";
 import connectdb from "@/db/connectdb";
 import { NextResponse } from "next/server";
 
+// get user from dummydata collection
+
 export async function POST(request) {
     try {
         await connectdb();

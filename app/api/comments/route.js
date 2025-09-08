@@ -4,6 +4,8 @@ import { NextResponse } from "next/server"
 import connectdb from "@/db/connectdb"
 import Comment from "@/models/Comment"
 
+// get comment from the database
+
 export async function GET(request) {
     try {
         await connectdb();
@@ -18,6 +20,8 @@ export async function GET(request) {
         NextResponse.json({ message: "Server Error" }, { status: 500 })
     }
 }
+
+// add comment to the database
 
 export async function POST(request) {
     try {
@@ -36,6 +40,8 @@ export async function POST(request) {
         return NextResponse.json({ message: "Server Error" }, { status: 500 })
     }
 }
+
+// delete all the comments
 
 export async function DELETE(request) {
     try {

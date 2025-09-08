@@ -2,6 +2,8 @@ import connectdb from "@/db/connectdb";
 import Productlist from "@/models/Productlist";
 import { NextResponse } from "next/server";
 
+// get all products or just the product of specific category
+
 export async function POST(request) {
     try {
         await connectdb()

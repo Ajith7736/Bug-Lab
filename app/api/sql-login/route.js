@@ -2,6 +2,8 @@ import Database from "better-sqlite3";
 import { NextResponse } from "next/server";
 import path from "path";
 
+// get user from the sql database
+
 export async function POST(request){
     const dbpath = path.join(process.cwd(),"database.db");
     const db = new Database(dbpath);

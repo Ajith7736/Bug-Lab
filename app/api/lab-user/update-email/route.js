@@ -2,6 +2,8 @@ import Dummydata from "@/models/Dummydata";
 import connectdb from "@/db/connectdb";
 import { NextResponse } from "next/server";
 
+//Update Email of the user data in dummydata collection
+
 export async function POST(request) {
     try {
         connectdb();

@@ -13,10 +13,7 @@ function Page() {
     const handlesubmit = () => {
         const name = document.getElementById("name").value;
         const output = document.getElementsByClassName("output")[0]
-
-
         output.innerHTML = `Hi , Welcome to the page ${name}`
-
         setinputvalue(name)
     }
 

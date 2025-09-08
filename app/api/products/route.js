@@ -2,6 +2,7 @@ import Database from "better-sqlite3";
 import path from "path";
 import { NextResponse } from "next/server";
 
+// get products from the sql database
 
 export async function GET(request) {
     try {

@@ -17,9 +17,13 @@ function Page() {
     const { data: session } = useSession()
     const [loading, setloading] = useState(false)
 
+    // get password on the first render
+
     useEffect(() => {
         getpassword()
     }, [])
+
+    // checks wether the password is hacked or not
 
     useEffect(() => {
         if (password === 'hacked@123') {
@@ -27,7 +31,7 @@ function Page() {
         }
     }, [password])
 
-
+    // to get the userdata and check whether the username is not weiner
 
     const handlesubmit = async (data) => {
         setloading(true)
@@ -41,6 +45,8 @@ function Page() {
         reset()
     }
 
+    // custom delay
+
     const delay = (t) => {
         return new Promise((resolve,reject) => {
             setTimeout(() => {
@@ -48,6 +54,8 @@ function Page() {
             }, t * 1000);
         })
     }
+
+    // get password from the database
 
     const getpassword = async () => {
         let res = await fetch("/api/lab-user/getuser", {
@@ -63,6 +71,7 @@ function Page() {
         }
     }
 
+    // get userdata from the dummydata database
 
     const getuser = async (data) => {
         let res = await fetch("/api/lab-user", {
@@ -81,6 +90,8 @@ function Page() {
         }
     }
 
+    // set the userdata to the localStorage
+
     useEffect(() => {
         if (user) {
             localStorage.setItem("user", JSON.stringify({ id: user.id, Username: user.Username, Email: user.Email }))
@@ -88,12 +99,15 @@ function Page() {
         }
     }, [user])
 
+    // call the solvedlab function when the success is true
 
     useEffect(() => {
         if (success && session?.user?.id) {
             solvedlab()
         }
     }, [success, session])
+
+    // set the completion true
 
     const solvedlab = async () => {
         await fetch("/api/updateprogress", {

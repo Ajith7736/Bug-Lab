@@ -2,6 +2,8 @@ import connectdb from "@/db/connectdb";
 import { NextResponse } from "next/server";
 import Progress from "@/models/Progress";
 
+// find the progress with userid
+
 export async function POST(request) {
     try {
         await connectdb()

@@ -15,10 +15,13 @@ function Page() {
 
 
 
+  // get user data from localstorage
 
   useEffect(() => {
     setuser(localStorage.getItem("user"))
   }, [])
+
+  // get userdata from the database when the user changes
 
   useEffect(() => {
     if (user) {
@@ -26,11 +29,15 @@ function Page() {
     }
   }, [user])
 
+  // check whether the email is hacked or not
+
   useEffect(() => {
     if (Email === "hacked@evil.com") {
       setsuccess(true)
     }
   }, [Email])
+
+  // fetch user data from the dummydata collection
 
   const getuser = async () => {
     let res = await fetch("/api/lab-user/getuser", {
@@ -46,7 +53,7 @@ function Page() {
     }
   }
 
-
+  // update the email of the specific user 
 
   const updateEmail = async (data) => {
     let res = await fetch("/api/lab-user/update-email", {
@@ -62,27 +69,30 @@ function Page() {
     }
   }
 
+  // submit the Email entered
 
   const handlesubmit = () => {
     updateEmail(inputref.current.value)
     inputref.current.value = ""
   }
 
-  useEffect(() => {
-        if (success && session?.user?.id) {
-            solvedlab()
-        }
-    }, [success, session])
+  // set the lab solved when success is true and there is id in the session
 
-    const solvedlab = async () => {
-        await fetch("/api/updateprogress", {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ userId: session?.user.id, labId: "CSRF-lab1" })
-        })
+  useEffect(() => {
+    if (success && session?.user?.id) {
+      solvedlab()
     }
+  }, [success, session])
+
+  const solvedlab = async () => {
+    await fetch("/api/updateprogress", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ userId: session?.user.id, labId: "CSRF-lab1" })
+    })
+  }
 
   return (
     <>

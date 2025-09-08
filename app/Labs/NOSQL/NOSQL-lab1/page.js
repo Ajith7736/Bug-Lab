@@ -12,6 +12,7 @@ function Page() {
   const { data: session } = useSession()
   const [loading, setloading] = useState(false)
 
+  // submit the data given by the user
 
   const handlesubmit = async (data) => {
     setloading(true)
@@ -21,6 +22,8 @@ function Page() {
     reset()
   }
 
+  // custom delay
+
   const delay = (t) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -28,6 +31,8 @@ function Page() {
       }, t * 1000);
     })
   }
+
+  // submit the user data and get the response
 
   const getuser = async (data) => {
     let res = await fetch("/api/nosqlroutes/getuser", {
@@ -49,11 +54,13 @@ function Page() {
     }
   }
 
+
   useEffect(() => {
     if (success && session?.user?.id) {
       solvedlab()
     }
   }, [success, session])
+
 
   const solvedlab = async () => {
     await fetch("/api/updateprogress", {

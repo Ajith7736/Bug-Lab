@@ -2,6 +2,8 @@ import User from "@/models/User";
 import connectdb from "@/db/connectdb";
 import { NextResponse } from "next/server";
 
+// update username 
+
 export async function POST(request) {
     try{
         await connectdb()

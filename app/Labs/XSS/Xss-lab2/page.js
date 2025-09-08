@@ -18,6 +18,7 @@ function Page() {
         }
     }, [])
 
+    // create a script when the user enters the script payload
 
     const handlesubmit = () => {
         const name = document.getElementById("name").value;

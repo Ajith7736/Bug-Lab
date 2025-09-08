@@ -9,6 +9,8 @@ function Page() {
     const [errormessage, seterrormessage] = useState(null)
     const [loading, setloading] = useState(false)
 
+    // get the userdata from the localStorage
+
     useEffect(() => {
         const storeduser = localStorage.getItem("user");
         if (storeduser) {
@@ -16,6 +18,7 @@ function Page() {
         }
     }, [])
 
+    // submit the data inputted by the user
 
     const handlesubmit = async (e) => {
         setloading(true)
@@ -27,6 +30,8 @@ function Page() {
         setloading(false)
     }
 
+    // custom delay
+
     const delay = (t) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -34,6 +39,8 @@ function Page() {
             }, t * 1000);
         })
     }
+
+    // update the password with the newpassword given by the user
 
     const updatepassword = async (currentpassword, newpassword) => {
         let res = await fetch("/api/lab-user/updatepassword", {

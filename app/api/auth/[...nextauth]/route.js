@@ -1,5 +1,3 @@
-// next auth handler
-
 import NextAuth from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
@@ -10,6 +8,7 @@ import Lab from "@/models/Labs";
 import Progress from "@/models/Progress";
 
 
+// next auth handlers
 
 const handler = NextAuth({
     providers: [
@@ -34,7 +33,9 @@ const handler = NextAuth({
                 }
             }
         }),
-    ], callbacks: {
+    ],
+    // callback for signin to add the user to mongodb
+    callbacks: {
         async signIn({ user, account }) {
             try {
                 await connectdb();
@@ -70,6 +71,8 @@ const handler = NextAuth({
             }
         },
 
+        // add the username from the database to the token
+
         async jwt({ token, user }) {
             if (user) {
                 await connectdb();
@@ -81,6 +84,8 @@ const handler = NextAuth({
             return token;
         },
 
+        // add the data to the session
+
         async session({ session, token }) {
             if (token) {
                 session.user.id = token.id;
@@ -89,6 +94,7 @@ const handler = NextAuth({
             }
             return session;
         },
+        // redirection after signin
         redirect({ url, baseUrl }) {
             if (url === baseUrl) {
                 return `${baseUrl}/setusername`

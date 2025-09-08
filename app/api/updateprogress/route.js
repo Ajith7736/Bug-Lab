@@ -3,6 +3,8 @@ import Progress from "@/models/Progress";
 import User from "@/models/User";
 import { NextResponse } from "next/server";
 
+// update the completed status of the user progress
+
 export async function PUT(request) {
     try {
         await connectdb();

@@ -10,12 +10,15 @@ function Page() {
   const [category, setcategory] = useState(null)
   const { data: session } = useSession()
 
+  // get all the products except the product which has category internal
 
   useEffect(() => {
     if (category !== "internal") {
       getproducts()
     }
   }, [category])
+
+  // check whether there is products with category internal
 
   useEffect(() => {
     products?.find((item) => {
@@ -25,6 +28,7 @@ function Page() {
     })
   }, [products])
 
+  // get the products from the database
 
   const getproducts = async () => {
     let res = await fetch("/api/nosqlroutes/getproducts", {

@@ -13,6 +13,8 @@ function ProductsPage() {
     const [error, seterror] = useState(null)
     const { data: session } = useSession()
 
+    // set the success true when the payload typed by the user is same
+
     useEffect(() => {
         getproducts()
         if (category?.includes("ORDER BY 5 --") || category?.includes("UNION SELECT NULL,NULL,NULL,NULL,NULL --")) {

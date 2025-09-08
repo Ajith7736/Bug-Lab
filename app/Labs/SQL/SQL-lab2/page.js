@@ -26,6 +26,8 @@ function ProductsPage() {
         if (res.status === 200) setproducts(data.products)
     }
 
+    // add the category in url
+
     const setcategory = (cat) => {
         if (cat == "All") router.push("/Labs/SQL/SQL-lab2")
         else router.push(`/Labs/SQL/SQL-lab2?category=${cat}`)

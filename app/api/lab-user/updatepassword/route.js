@@ -2,6 +2,8 @@ import Dummydata from "@/models/Dummydata";
 import connectdb from "@/db/connectdb";
 import { NextResponse } from "next/server";
 
+//change the password of the user
+
 export async function POST(request) {
     try {
         await connectdb();

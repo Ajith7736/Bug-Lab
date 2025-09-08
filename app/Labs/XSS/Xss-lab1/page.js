@@ -13,6 +13,8 @@ function Page() {
   const [submittedname, setsubmittedname] = useState("")
   const { data: session } = useSession()
 
+  // overriding the alert so that we know that an alert is being called
+
   useEffect(() => {
     const originalalert = window.alert;
 

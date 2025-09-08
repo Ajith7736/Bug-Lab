@@ -12,6 +12,8 @@ function Page() {
     const router = useRouter()
     const [loading, setloading] = useState(false)
 
+    // submit the data that has been entered by the user
+
     const handlesubmit = async (data) => {
         setloading(true)
         await delay(1)
@@ -19,6 +21,8 @@ function Page() {
         setloading(false)
         reset()
     }
+
+    // custom delay
 
     const delay = (t) => {
         return new Promise((resolve,reject) => {
@@ -28,6 +32,7 @@ function Page() {
         })
     }
 
+    // get user from the dummydata database
 
     const getuser = async (data) => {
         let res = await fetch("/api/lab-user", {
@@ -45,6 +50,8 @@ function Page() {
             seterrormessage(resdata.message)
         }
     }
+
+    // set the userdata to the localStorage for indicating user is logged in
 
     useEffect(() => {
         if (user) {

@@ -2,6 +2,8 @@ import connectdb from "@/db/connectdb";
 import Lab from "@/models/Labs";
 import { NextResponse } from "next/server";
 
+// get lab sorted by labId
+
 export async function GET(request) {
     try {
         await connectdb()
