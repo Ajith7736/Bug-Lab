@@ -40,7 +40,7 @@ Bug-Lab is a web application built mainly for those who are starting their journ
 
 Here are some of the things this app can do:
 
-- User authentication using NextAuth.js
+- User authentication using NextAuth.js allowing users to sign in with google , github
 - User can select any lab and solve the lab by exploiting it.
 - When user completes a lab he/she gains points.
 - Leaderboard page to show users with most points.
@@ -49,3 +49,10 @@ Here are some of the things this app can do:
 
 ---
 
+## Teach Stack
+
+- **Frontend** : React.js, Next.js, Tailwind CSS.
+- **Backend** : Node.js, Next.js.
+- **Database** : MongoDB.
+- **Authentication** : NextAuth.js.
+- 
