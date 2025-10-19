@@ -33,3 +33,19 @@
 ## About
 
 Bug-Lab is a web application built mainly for those who are starting their journey in bug bounty and finding web vulnerabilities.This web app is built with Nextjs , Node js , MongoDB Database.There are 5 different vulnarability labs like SQL Injection , NOSQL Injection , Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF) implemented in this app.So the beginners can easily understand it and exploit the vulnerabilities. 
+
+---
+
+## Features
+
+Here are some of the things this app can do:
+
+- User authentication using NextAuth.js
+- User can select any lab and solve the lab by exploiting it.
+- When user completes a lab he/she gains points.
+- Leaderboard page to show users with most points.
+- Secure Rest APIs using Next API routes.
+- Responsive and minimal UI designs.
+
+---
+
