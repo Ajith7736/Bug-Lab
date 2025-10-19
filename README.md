@@ -123,8 +123,8 @@ Follow these steps to run the project on your machine:
    - create an .env file in the backend folder.
    - Add the above mentioned env variables.
 
-4. **Start the backend**
-  for backend(server):
+4. **Start the localhost**
+
    ```bash
    npm run dev
    ```
