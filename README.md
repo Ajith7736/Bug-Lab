@@ -86,8 +86,7 @@ Make sure you have:
   !. Clone the repo:
   
   ```bash
-        git clone
-  https://github.com/Ajith7736/Bug-Lab.git
+  git clone https://github.com/Ajith7736/Bug-Lab.git
   cd Bug-Lab
 
  ### Environment Variables
