@@ -29,3 +29,7 @@
 - [Contact](#contact)
 
 ---
+
+## About
+
+Bug-Lab is a web application built mainly for those who are starting their journey in bug bounty and finding web vulnerabilities.This web app is built with Nextjs , Node js , MongoDB Database.There are 5 different vulnarability labs like SQL Injection , NOSQL Injection , Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF) implemented in this app.So the beginners can easily understand it and exploit the vulnerabilities. 
