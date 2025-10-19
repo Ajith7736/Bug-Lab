@@ -103,5 +103,31 @@ to your `.env` file in the `backend` folder:
 - `NEXTAUTH_URL` → URL string (eg : http://localhost:3000 )
 - `TWITTER_CLIENT_ID` → Twitter API Key ID 
 - `TWITTER_CLIENT_SECRET` → Twitter API Key SECRET
-  
 
+## 🖥️ Running Locally
+
+Follow these steps to run the project on your machine:  
+
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/Ajith7736/part-time-connect.git
+   cd part-time-connect```
+
+2. **Install Dependencies** 
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up Environment Variables**
+   - create an .env file in the backend folder.
+   - Add the above mentioned env variables.
+
+4. **Start the backend**
+  for backend(server):
+   ```bash
+   npm run dev
+   ```
+   This will run backend on port 3000
+
+---
