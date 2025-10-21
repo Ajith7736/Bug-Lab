@@ -140,7 +140,7 @@ Follow these steps to run the project on your machine:
 
 ---
 
-### Folder Structure
+## Folder Structure
 
 ```bash
 📦 
@@ -266,7 +266,7 @@ Follow these steps to run the project on your machine:
 └─ tailwind.config.js
 ```
 ---
-### Usage
+## Usage
 
 - Create Account via Google, Github or Twitter.
 - Choose a lab to practice.
@@ -274,14 +274,14 @@ Follow these steps to run the project on your machine:
 
 ---
 
-### Roadmap
+## Roadmap
 
 - Add more Labs.
 - Increase the difficulty level.
 
 ---
 
-### Contributing
+## Contributing
 
 Contributions are welcome! 🎉  
 
@@ -293,14 +293,14 @@ Contributions are welcome! 🎉
 
 ---
 
-### License
+## License
 
 This project is licensed under the **MIT License**.  
 You’re free to use, modify, and distribute with proper credit.  
 
 ---
 
-### Acknowledgements
+## Acknowledgements
 
 - [Next.js](https://nextjs.org/)
 - [Node.js](https://nodejs.org/)  
@@ -310,7 +310,7 @@ You’re free to use, modify, and distribute with proper credit.
 
 ---
 
-### Contact
+## Contact
 
 👤 **Ajith P**  
 📩 Email: [ajith.aju39502@gmail.com]  
