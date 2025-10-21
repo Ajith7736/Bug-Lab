@@ -70,7 +70,7 @@ export default function Home() {
             Practice Web App <span className="text-[var(--extra-light-button)] animate-pulse">Hacking</span>  in a Safe Lab Environment
           </div>
           <div className="text-lg lg:text-2xl max-[450px]:text-base max-[380px]:text-xs max-[450px]:px-2 text-center poppins-bold">
-            Learn and exploit vulnerabilities like <span className="text-[var(--extra-light-button)]">SQLi, XSS, CSRF, and more.Start your cybersecurity journey.</span>
+            Learn and exploit vulnerabilities like <span className="text-[var(--extra-light-button)]">SQLi, XSS, CSRF, and more.</span> Start your cybersecurity journey.
           </div>
           <div className="flex flex-col gap-5 items-center">
             <div className="bg-white/5 p-3 max-[450px]:p-2 border border-gray-600 rounded-full">
