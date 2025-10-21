@@ -98,7 +98,7 @@ Make sure you have:
  ### Environment Variables
 
  To run this project, you will need to add the following environment variables  
-to your `.env` file in the `backend` folder:
+to your `.env.local` file:
 
 - `MONGO_URI` → MongoDB connection string   
 - `GITHUB_ID` → Github API Key ID
