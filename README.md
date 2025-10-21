@@ -104,7 +104,7 @@ to your `.env.local` file:
 - `GITHUB_ID` → Github API Key ID
 - `GITHUB_SECRET` → Github API Key SECRET
 - `GOOGLE_CLIENT_ID` → Google API Key ID
-- `GOOGLE_CLIENT_ID` → Google API Key ID
+- `GOOGLE_CLIENT_SECRET` → Google API Key SECRET
 - `NEXTAUTH_SECRET` → Some random string key made using openssl
 - `NEXTAUTH_URL` → URL string
 - `TWITTER_CLIENT_ID` → Twitter API Key ID 
@@ -128,7 +128,7 @@ Follow these steps to run the project on your machine:
 
 3. **Set up Environment Variables**
 
-   - create an .env file in the backend folder.
+   - create an .env.local file in the folder.
    - Add the above mentioned env variables.
 
 4. **Start the localhost**
@@ -136,7 +136,7 @@ Follow these steps to run the project on your machine:
    ```bash
    npm run dev
    ```
-   This will run backend on port 3000
+   This will run on port 3000
 
 ---
 
