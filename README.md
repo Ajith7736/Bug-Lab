@@ -263,3 +263,55 @@ Follow these steps to run the project on your machine:
 │  └─ sword.png
 └─ tailwind.config.js
 ```
+---
+### Usage
+
+- Create Account via Google, Github or Twitter.
+- Choose a lab to practice.
+- Exploit the vulnarability in the lab.
+
+---
+
+### Roadmap
+
+- Add more Labs.
+- Increase the difficulty level.
+
+---
+
+### Contributing
+
+Contributions are welcome! 🎉  
+
+1. Fork the repo  
+2. Create a new branch (`git checkout -b feature/your-feature`)  
+3. Commit changes (`git commit -m "Add some feature"`)  
+4. Push to the branch (`git push origin feature/your-feature`)  
+5. Open a Pull Request  
+
+---
+
+### License
+
+This project is licensed under the **MIT License**.  
+You’re free to use, modify, and distribute with proper credit.  
+
+---
+
+### Acknowledgements
+
+- [Next.js](https://nextjs.org/)
+- [Node.js](https://nodejs.org/)  
+- [TailwindCSS](https://tailwindcss.com/)
+- [MongoDB](https://www.mongodb.com/)  
+- [Vercel](https://vercel.com/) (for deployment)  
+
+---
+
+### Contact
+
+👤 **Ajith P**  
+📩 Email: [ajith.aju39502@gmail.com]  
+🔗 GitHub: [Ajith7736](https://github.com/Ajith7736)  
+
+---
