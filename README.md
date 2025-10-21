@@ -106,7 +106,7 @@ to your `.env` file in the `backend` folder:
 - `GOOGLE_CLIENT_ID` → Google API Key ID
 - `GOOGLE_CLIENT_ID` → Google API Key ID
 - `NEXTAUTH_SECRET` → Some random string key made using openssl
-- `NEXTAUTH_URL` → URL string (eg : http://localhost:3000 )
+- `NEXTAUTH_URL` → URL string
 - `TWITTER_CLIENT_ID` → Twitter API Key ID 
 - `TWITTER_CLIENT_SECRET` → Twitter API Key SECRET
 
