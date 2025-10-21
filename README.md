@@ -117,7 +117,8 @@ Follow these steps to run the project on your machine:
 1. **Clone the repository**  
    ```bash
    git clone https://github.com/Ajith7736/part-time-connect.git
-   cd part-time-connect```
+   cd part-time-connect
+```
 
 2. **Install Dependencies** 
 
