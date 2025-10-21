@@ -110,7 +110,7 @@ to your `.env` file in the `backend` folder:
 - `TWITTER_CLIENT_ID` → Twitter API Key ID 
 - `TWITTER_CLIENT_SECRET` → Twitter API Key SECRET
 
-## 🖥️ Running Locally
+## Running Locally
 
 Follow these steps to run the project on your machine:  
 
@@ -137,3 +137,129 @@ Follow these steps to run the project on your machine:
    This will run backend on port 3000
 
 ---
+
+### Folder Structure
+
+```bash
+📦 
+├─ .gitignore
+├─ README.md
+├─ app
+│  ├─ Labs
+│  │  ├─ CSRF
+│  │  │  ├─ CSRF-lab1
+│  │  │  │  ├─ Evil
+│  │  │  │  │  └─ page.js
+│  │  │  │  ├─ Update
+│  │  │  │  │  └─ page.js
+│  │  │  │  └─ page.js
+│  │  │  └─ CSRF-lab2
+│  │  │     ├─ Evil
+│  │  │     │  └─ page.js
+│  │  │     ├─ Update
+│  │  │     │  └─ page.js
+│  │  │     └─ page.js
+│  │  ├─ NOSQL
+│  │  │  ├─ NOSQL-lab1
+│  │  │  │  └─ page.js
+│  │  │  ├─ NOSQL-lab2
+│  │  │  │  └─ page.js
+│  │  │  └─ NOSQL-lab3
+│  │  │     └─ page.js
+│  │  ├─ SQL
+│  │  │  ├─ SQL-lab1
+│  │  │  │  └─ page.js
+│  │  │  ├─ SQL-lab2
+│  │  │  │  └─ page.js
+│  │  │  ├─ SQL-lab3
+│  │  │  │  └─ page.js
+│  │  │  └─ SQL-lab4
+│  │  │     ├─ Login
+│  │  │     │  └─ page.js
+│  │  │     └─ page.js
+│  │  ├─ XSS
+│  │  │  ├─ Xss-lab1
+│  │  │  │  └─ page.js
+│  │  │  ├─ Xss-lab2
+│  │  │  │  └─ page.js
+│  │  │  ├─ Xss-lab3
+│  │  │  │  └─ page.js
+│  │  │  └─ Xss-lab4
+│  │  │     └─ page.js
+│  │  └─ page.js
+│  ├─ Leaderboard
+│  │  └─ page.js
+│  ├─ Login
+│  │  └─ page.js
+│  ├─ api
+│  │  ├─ auth
+│  │  │  └─ [...nextauth]
+│  │  │     └─ route.js
+│  │  ├─ comments
+│  │  │  └─ route.js
+│  │  ├─ getlabs
+│  │  │  └─ route.js
+│  │  ├─ getprogress
+│  │  │  └─ route.js
+│  │  ├─ getscore
+│  │  │  └─ route.js
+│  │  ├─ lab-user
+│  │  │  ├─ getuser
+│  │  │  │  └─ route.js
+│  │  │  ├─ route.js
+│  │  │  ├─ update-email
+│  │  │  │  └─ route.js
+│  │  │  └─ updatepassword
+│  │  │     └─ route.js
+│  │  ├─ nosqlroutes
+│  │  │  ├─ getproducts
+│  │  │  │  └─ route.js
+│  │  │  └─ getuser
+│  │  │     └─ route.js
+│  │  ├─ products
+│  │  │  └─ route.js
+│  │  ├─ setusername
+│  │  │  └─ route.js
+│  │  ├─ sql-login
+│  │  │  └─ route.js
+│  │  └─ updateprogress
+│  │     └─ route.js
+│  ├─ globals.css
+│  ├─ layout.js
+│  ├─ page.js
+│  └─ setusername
+│     └─ page.js
+├─ components
+│  ├─ Footer.jsx
+│  ├─ Lab.jsx
+│  ├─ Loading.jsx
+│  ├─ Navbar.jsx
+│  ├─ Sessionwrapper.js
+│  └─ Success.jsx
+├─ database.db
+├─ db
+│  └─ connectdb.js
+├─ eslint.config.mjs
+├─ jsconfig.json
+├─ models
+│  ├─ Comment.js
+│  ├─ Dummydata.js
+│  ├─ Labs.js
+│  ├─ Productlist.js
+│  ├─ Progress.js
+│  └─ User.js
+├─ next.config.mjs
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.mjs
+├─ public
+│  ├─ bg.png
+│  ├─ brain.png
+│  ├─ file.svg
+│  ├─ globe.svg
+│  ├─ hacker.png
+│  ├─ right-arrow(2) 1.png
+│  ├─ shield-svgrepo-com.png
+│  └─ sword.png
+└─ tailwind.config.js
+```
