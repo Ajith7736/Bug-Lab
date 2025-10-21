@@ -63,11 +63,17 @@ Here are some of the things this app can do:
 
 ### HomePage
 
+<img width="1890" height="891" alt="Buglab-1" src="https://github.com/user-attachments/assets/63f85bfb-56ea-4d52-b8b1-c218e74eac19" />
 
 ### Labs
 
+<img width="1892" height="871" alt="Buglab-2" src="https://github.com/user-attachments/assets/544a821c-6304-4f45-bd39-df3af0239017" />
+
+<img width="1852" height="823" alt="Buglab-4" src="https://github.com/user-attachments/assets/3628c185-b8d2-48d9-968d-35f0cfca0a80" />
 
 ### Leaderboard
+
+<img width="1908" height="877" alt="Buglab-3" src="https://github.com/user-attachments/assets/510f0cba-39bd-4b92-ab00-8809bbc2967b" />
 
 ---
 
